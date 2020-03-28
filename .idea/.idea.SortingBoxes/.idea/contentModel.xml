@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Box" t="Include">
+            <e p="BoxModel.cs" t="Include" />
+            <e p="DeactiveBox.cs" t="Include" />
+            <e p="MoveBox.cs" t="Include" />
+            <e p="SpawnBox.cs" t="Include" />
+          </e>
+          <e p="Color" t="Include">
+            <e p="ChangColor.cs" t="Include" />
+          </e>
+          <e p="Container" t="Include">
+            <e p="BoxColorControl.cs" t="Include" />
+            <e p="ContainerInfo.cs" t="Include" />
+            <e p="SpawnContainer.cs" t="Include" />
+          </e>
+          <e p="Floor" t="Include">
+            <e p="FloorConfig.cs" t="Include" />
+            <e p="FloorControll.cs" t="Include" />
+          </e>
+          <e p="Game" t="Include">
+            <e p="EStatusGame.cs" t="Include" />
+            <e p="GameInspector.cs" t="Include" />
+            <e p="IGameLiveCycleSystem.cs" t="Include" />
+            <e p="TransitionLevel.cs" t="Include" />
+          </e>
+          <e p="Menu" t="Include">
+            <e p="MenuButton.cs" t="Include" />
+          </e>
+          <e p="NewImplementation" t="Include">
+            <e p="IContainerSystem.cs" t="Include" />
+            <e p="IocContainer.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="CatchBox.cs" t="Include" />
+            <e p="MovePlayer.cs" t="Include" />
+            <e p="ThrowBox.cs" t="Include" />
+          </e>
+          <e p="Screen" t="Include">
+            <e p="ScreenInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="SortingBoxes.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_SortingBoxes.1909118495.00" t="ExcludeRecursive" />
+  </component>
+</project>
