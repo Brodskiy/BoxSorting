@@ -1,28 +1,28 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class GameButtonsController : MonoBehaviour
+public class GameButtonsController : MonoBehaviour, IInputSystem
 {
-    private PlayerMoves _playerMoves;
-    void Start()
+    public event Action<EInputState> OnClicked;
+    public event Action OnClickedOff;
+
+    public void OnButtonLeftDown()
     {
-        _playerMoves = _playerMoves == null ? FindObjectOfType<PlayerMoves>().GetComponent<PlayerMoves>() : _playerMoves;
+        OnClicked?.Invoke(EInputState.Left);
+    }    
+
+    public void OnButtonRightDown()
+    {
+        OnClicked?.Invoke(EInputState.Right);
     }
 
-    public void OnButtonLeft()
+    public void OnButtonThrowDown()
     {
-        _playerMoves.MoveLeft();
+        OnClicked?.Invoke(EInputState.Down);
     }
 
-    public void OnButtonRight()
+    public void OnButtonUp()
     {
-        _playerMoves.MoveRight();
+        OnClickedOff?.Invoke();
     }
-
-    public void OnButtonDown()
-    {
-        _playerMoves.ThrowBox();
-    }
-
-
-
 }

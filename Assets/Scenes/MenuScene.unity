@@ -150,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 375150349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c4fb919028835409517a5de573d20f, type: 3}
+  m_Script: {fileID: 11500000, guid: 60931f3cee1f36041a8f2e1bcca3089a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &375150351
@@ -399,7 +399,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 375150350}
-        m_MethodName: SettingGameBtn
+        m_MethodName: SettingGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -528,7 +528,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 375150350}
-        m_MethodName: QuitGameBtn
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -750,7 +750,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 375150350}
-        m_MethodName: StartGameBtn
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

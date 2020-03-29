@@ -10,6 +10,7 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private SpawnFloor _floor;
     [SerializeField] private SpawnContainer _container;
     [SerializeField] private InputKeybordSystem _inputKeybordSystem;
+    [SerializeField] private GameButtonsController _gameButtonsController;
 
     public IContainerSystem SpawnManager => _spawnBoxManager;
     public IContainerSystem Screen => _screen;
@@ -17,6 +18,7 @@ public class IocContainer : MonoBehaviour
     public IContainerSystem Floor => _floor;
     public IContainerSystem Container => _container;
     public IInputSystem InputSystem => _inputKeybordSystem;
+    public IInputSystem InputButtonSystem => _gameButtonsController;
 
     private void Start()
     {

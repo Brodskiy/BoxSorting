@@ -6,6 +6,11 @@ public class GameStatusManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _gameButtonPanel;
 
+    private void Start()
+    {
+        _gameButtonPanel.SetActive(true);
+    }
+
     private void ActivateObject(GameObject gameObject)
     {
         gameObject.SetActive(true);
@@ -26,12 +31,16 @@ public class GameStatusManager : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1;
-        DeactivateObject(_gameOverPanel);
-        ActivateObject(_gameButtonPanel);
+        SceneManager.LoadScene("GameScene");
     }
 
     public void SettingBtn()
     {
         SceneManager.LoadScene("SettingScene");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

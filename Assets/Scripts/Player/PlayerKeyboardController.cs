@@ -10,6 +10,9 @@ public class PlayerKeyboardController : MonoBehaviour
         
         IocContainer.Instance.InputSystem.OnClicked += _input_OnClicked;
         IocContainer.Instance.InputSystem.OnClickedOff += _input_OnClickedOff;
+
+        IocContainer.Instance.InputButtonSystem.OnClicked += _input_OnClicked;
+        IocContainer.Instance.InputButtonSystem.OnClickedOff += _input_OnClickedOff;
     }   
 
     private void _input_OnClicked(EInputState inputValue)
