@@ -20,7 +20,7 @@ public class PauseButtonsView : MonoBehaviour
         _btnPause.onClick.AddListener(PauseGame);
         _btnContinue.onClick.AddListener(RestartGame); // todo: remove on the scene 
 
-        _btnTriger.OnPointerUp();
+        
     }
 
     
