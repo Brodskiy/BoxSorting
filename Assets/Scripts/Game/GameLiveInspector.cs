@@ -14,7 +14,7 @@ class GameLiveInspector : MonoBehaviour
         if (Lives <= 0)
         {
             GameOver?.Invoke();
-            _gameStatus.GameOver();
+            _gameStatus.OnGameOver();
         }
     }
 

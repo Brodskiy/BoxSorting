@@ -4,26 +4,30 @@ using UnityEngine;
 class PlayerMoves : MonoBehaviour
 {
     private const float TWO = 2;
-
+    
+    private EInputState _direction = EInputState.None;
+    
     public event Action ThrowBoxDown;
 
-    private EInputState _direction = EInputState.None;
     private float _speed = 10;
     private float _stapDistance = 0.3f;
     private float _temp;
     private float _minPositionX;
     private float _maxPositionX;
+    
     private bool _isMoveLeft;
 
-    public Transform BoxPositionInPlayerHands;
+    public Transform BoxPositionInPlayerHands { get; private set; }
 
     private void Start()
     {
         _isMoveLeft = false;
         _temp = transform.position.x;
+        
         var halfPlayer = transform.localScale.x / TWO;
-        _minPositionX = FindObjectOfType<ScreenInfo>().MinPosition.x + halfPlayer;
-        _maxPositionX = FindObjectOfType<ScreenInfo>().MaxPosition.x - halfPlayer;
+        
+        _minPositionX = IocContainer.Instance.ScreenSystem.MinPosition.x + halfPlayer;
+        _maxPositionX = IocContainer.Instance.ScreenSystem.MaxPosition.x - halfPlayer;
     }
 
     private void Update()

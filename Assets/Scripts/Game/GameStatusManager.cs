@@ -1,15 +1,25 @@
-﻿using UnityEngine;
+﻿
+using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStatusManager : MonoBehaviour
+
+public class GameStatusManager : MonoBehaviour, IStatusGameSystem
 {
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _gameButtonPanel;
 
+<<<<<<< HEAD
     private void Start()
     {
         _gameButtonPanel.SetActive(true);
     }
+=======
+    public event Action GameOver;
+    public event Action Start;
+    
+    private float _deltaTimeGame = 1;
+>>>>>>> Refactoring
 
     private void ActivateObject(GameObject gameObject)
     {
@@ -21,17 +31,25 @@ public class GameStatusManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void GameOver()
+    public void OnGameOver()
     {
         Time.timeScale = 0;
+        
+        GameOver?.Invoke();
+        
         ActivateObject(_gameOverPanel);
         DeactivateObject(_gameButtonPanel);
     }
 
     public void StartGame()
     {
+<<<<<<< HEAD
         Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
+=======
+        DeactivateObject(_gameOverPanel);
+        ActivateObject(_gameButtonPanel);
+>>>>>>> Refactoring
     }
 
     public void SettingBtn()
@@ -39,8 +57,19 @@ public class GameStatusManager : MonoBehaviour
         SceneManager.LoadScene("SettingScene");
     }
 
+<<<<<<< HEAD
     public void QuitGame()
     {
         Application.Quit();
+=======
+    public void OnPause()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void OnPlay()
+    {
+        Time.timeScale = 1;
+>>>>>>> Refactoring
     }
 }

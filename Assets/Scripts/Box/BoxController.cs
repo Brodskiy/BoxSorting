@@ -1,34 +1,37 @@
 ﻿using System;
 using UnityEngine;
 
-public class BoxInfo : MonoBehaviour
+public class BoxController : MonoBehaviour
 {
     public GameObject _backgroundColor;
-    public Color BoxColor { get; private set; }
-    public bool WasCaught { get; private set; }
-    public bool WasActive { get; private set; }
 
-    private void Start()
+    public BoxInfoData InfoData;
+
+    private void Init()
     {
-        WasActive = true;
+        InfoData = new BoxInfoData();
+        InfoData.WasActive = true;
     }
 
     public void SetBoxColor(int quantityColors)
     {
+
+        Init();
+
         ChangColor changColor = new ChangColor(quantityColors);
-        BoxColor = changColor.RandomColor;
+        InfoData.BoxColor = changColor.RandomColor;
         GC.SuppressFinalize(changColor);
     }
 
     public void IsCaught(bool isCaught)
     {
-        WasCaught = isCaught;
+        InfoData.WasCaught = isCaught;
     }
 
     public void IsActive(bool isActive)
     {
-        WasActive = isActive;
         gameObject.SetActive(isActive);
+        InfoData.WasActive = gameObject.activeInHierarchy;
     }
 
     public void Activate(float _leftEdge, float _rightEdge, float _startPositionY)

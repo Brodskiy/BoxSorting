@@ -6,10 +6,10 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
 {
     private const float ZERO = 0;
 
-    [SerializeField] private GameObject _prefabBox;    
+    [SerializeField] private BoxContainerSystem _prefabBox;
     [SerializeField] private QuantityColors _quantityColors;
 
-    private List<BoxInfo> _listBoxes;
+    private List<BoxContainerSystem> _listBoxes;
     private float _spawnTime = 5;
     private float _timet;
 
@@ -18,13 +18,13 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
     private float _minPositionX;
     private float _maxPositionX;
 
-    public event Action<BoxInfo> BoxCreated;
+    public event Action<BoxContainerSystem> BoxCreated;
 
     public void Init()
     {
         gameObject.SetActive(true);
 
-        _listBoxes = new List<BoxInfo>();
+        _listBoxes = new List<BoxContainerSystem>();
         _quantityColorsBox = _quantityColors.GetQuantityColors;
         SetInitPosition();
         FindObjectOfType<GameLevelInspector>().LevelUp += SpawnBox_LevelUp;
@@ -44,7 +44,7 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
 
     private void SetInitPosition()
     {
-        var screen = FindObjectOfType<ScreenInfo>().GetComponent<ScreenInfo>();
+        var screen = IocContainer.Instance.ScreenSystem;
 
         _minPositionX = screen.MinPosition.x + (gameObject.transform.localScale.x / 2);
         _maxPositionX = screen.MaxPosition.x - (gameObject.transform.localScale.x / 2);
@@ -71,28 +71,28 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
     {
         for (int i = 0; i < _listBoxes.Count; i++)
         {
-            if (!_listBoxes[i].WasActive)
+            if (!_listBoxes[i]._boxController.InfoData.WasActive)
             {
-                _listBoxes[i].Activate(_minPositionX, _maxPositionX, transform.position.y);
-                BoxColor(_listBoxes[i]);
+                _listBoxes[i]._boxController.Activate(_minPositionX, _maxPositionX, transform.position.y);
+                BoxColor(_listBoxes[i]._boxController);
                 return;
             }
         }
 
-        var newBox =
+        BoxContainerSystem newBox =
             Instantiate(_prefabBox,
-            new Vector3(UnityEngine.Random.Range(_minPositionX, _maxPositionX), transform.position.y),
-            Quaternion.identity).
-            GetComponent<BoxInfo>();
+                new Vector3(UnityEngine.Random.Range(_minPositionX, _maxPositionX), transform.position.y),
+                Quaternion.identity);
 
-        BoxColor(newBox);
+        BoxColor(newBox._boxController);
+        
         _listBoxes.Add(newBox);
         BoxCreated?.Invoke(newBox);
     }
 
-    private void BoxColor(BoxInfo box)
+    private void BoxColor(BoxController box)
     {
         box.SetBoxColor(_quantityColorsBox);
-        box._backgroundColor.GetComponent<Renderer>().material.color = box.BoxColor;
+        box._backgroundColor.GetComponent<Renderer>().material.color = box.InfoData.BoxColor;
     }
 }

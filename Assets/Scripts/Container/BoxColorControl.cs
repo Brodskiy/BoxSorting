@@ -4,11 +4,11 @@ public class BoxColorControl : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<BoxInfo>())
+        if (collision.GetComponent<BoxController>())
         {
             if(!IsSameColor(collision.gameObject))
             {
-                collision.GetComponent<BoxInfo>().IsActive(false);
+                collision.GetComponent<BoxController>().IsActive(false);
                 FindObjectOfType<GameLiveInspector>().LiveIsLost();
             }
         }
@@ -16,6 +16,6 @@ public class BoxColorControl : MonoBehaviour
 
     private bool IsSameColor(GameObject box)
     {
-        return gameObject.GetComponent<Renderer>().material.color == box.GetComponent<BoxInfo>().BoxColor;
+        return gameObject.GetComponent<Renderer>().material.color == box.GetComponent<BoxController>().InfoData.BoxColor;
     }
 }

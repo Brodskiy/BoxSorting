@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SpawnContainer : MonoBehaviour, IContainerSystem
 {
+    // todo: refactoring
+    
     [SerializeField] private GameObject _containerPrefab;
     [SerializeField] private QuantityColors _quantityColors;
 
     private int _quantityContainer;
 
-    private ScreenInfo _screenInfo;
+    private IScreenInfoSystem _screenInfo;
     private Vector3 _containerSize;
     private Vector3 _positionFirstContainer;
     private List<GameObject> _listContainers;
@@ -20,14 +22,14 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
 
         _quantityContainer = _quantityColors.GetQuantityColors;
         _listContainers = new List<GameObject>();
-        _screenInfo = FindObjectOfType<ScreenInfo>().GetComponent<ScreenInfo>();
+        _screenInfo = IocContainer.Instance.ScreenSystem;
 
-        _quantityColors.ChangeQuantityColors += _quantityColors_ChangeQuantityColors;
+        _quantityColors.ChangeQuantityColors += QuantityColorsChangeQuantityColors;
 
         SpawnContainers();
     }
 
-    private void _quantityColors_ChangeQuantityColors(int quanityColors)
+    private void QuantityColorsChangeQuantityColors(int quanityColors)
     {
         _quantityContainer = quanityColors;
         SpawnContainers();
@@ -64,7 +66,10 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
             }
             else
             {
-                var container = InstatiateContainer();
+                var container = Instantiate(
+                    _containerPrefab, 
+                    new Vector3(_positionFirstContainer.x, transform.position.y, -8), Quaternion.identity);
+                
                 container.transform.localScale = new Vector3(_containerSize.x, transform.localScale.y);
 
                 _listContainers.Add(container);
@@ -76,14 +81,9 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
         }
     }
 
-    private GameObject InstatiateContainer()
-    {
-        return Instantiate(_containerPrefab, new Vector3(_positionFirstContainer.x, transform.position.y, -8), Quaternion.identity);
-    }
-
     private void SetColor(int numberContainer)
-    {
-        ChangColor _changeColor = new ChangColor(numberContainer);
+    { 
+        var _changeColor = new ChangColor(numberContainer);
 
         _listContainers[numberContainer].GetComponent<Renderer>().material.color = _changeColor.ListColors[numberContainer];
 

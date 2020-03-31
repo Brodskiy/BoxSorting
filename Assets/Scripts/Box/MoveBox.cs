@@ -2,9 +2,9 @@
 
 public class MoveBox : MonoBehaviour
 {
-    private float _speed;
+    private float Speed { get; set; }
 
-    public bool _isBoxStop;
+    public bool IsBoxStop { get; set; }
 
     private void Update()
     {
@@ -15,14 +15,14 @@ public class MoveBox : MonoBehaviour
     {
         SetSpeedMove();
 
-        if (_isBoxStop)
+        if (IsBoxStop)
         {
             MoveWithPlayer();            
             return;
         }
 
         Vector3 temp = transform.position;
-        temp.y -= _speed * Time.deltaTime;
+        temp.y -= Speed * Time.deltaTime;
         transform.position = temp;
     }
 
@@ -33,6 +33,6 @@ public class MoveBox : MonoBehaviour
 
     private void SetSpeedMove()
     {
-        _speed = FindObjectOfType<SpeedBox>().Speed;
+        Speed = FindObjectOfType<SpeedBox>().Speed;
     }
 }
