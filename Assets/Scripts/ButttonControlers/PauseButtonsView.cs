@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,19 +9,16 @@ public class PauseButtonsView : MonoBehaviour
 
     [SerializeField] private Button _btnPause;
     [SerializeField] private Button _btnContinue;
-
-    private EventTrigger _btnTriger;
-
+    [SerializeField] private Button _btnRestart;
+    [SerializeField] private Button _btnMainMenu;
 
     private void Start()
     {
         _btnPause.onClick.AddListener(PauseGame);
-        _btnContinue.onClick.AddListener(RestartGame); // todo: remove on the scene 
-
-        
-    }
-
-    
+        _btnContinue.onClick.AddListener(ContinueGame);
+        _btnRestart.onClick.AddListener(RestartGame);
+        _btnMainMenu.onClick.AddListener(OpenStartMenu);
+    }   
 
     public void PauseGame()
     {

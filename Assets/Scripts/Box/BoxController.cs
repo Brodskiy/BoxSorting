@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public abstract class BoxController : MonoBehaviour
+public class BoxController : MonoBehaviour
 {
     public GameObject _backgroundColor;
 
@@ -9,6 +9,7 @@ public abstract class BoxController : MonoBehaviour
 
     private void Start()
     {
+        InfoData = new BoxInfoData();
         InfoData.WasActive = true;
     }
 

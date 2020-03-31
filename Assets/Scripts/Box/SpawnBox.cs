@@ -8,10 +8,10 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
     //todo: refactoring 
     private const float ZERO = 0;
 
-    [SerializeField] private BoxController _prefabBox;    
+    [SerializeField] private BoxContainerSystem _prefabBox;    
     [SerializeField] private QuantityColors _quantityColors;
 
-    private List<BoxController> _listBoxes;
+    private List<BoxContainerSystem> _listBoxes;
     private float _spawnTime = 5;
     private float _timet;
 
@@ -20,13 +20,13 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
     private float _minPositionX;
     private float _maxPositionX;
 
-    public event Action<BoxController> BoxCreated;
+    public event Action<BoxContainerSystem> BoxCreated;
 
     public void Init()
     {
         gameObject.SetActive(true);
 
-        _listBoxes = new List<BoxController>();
+        _listBoxes = new List<BoxContainerSystem>();
         _quantityColorsBox = _quantityColors.GetQuantityColors;
         SetInitPosition();
         FindObjectOfType<GameLevelInspector>().LevelUp += SpawnBox_LevelUp;
@@ -73,20 +73,20 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
     {
         for (int i = 0; i < _listBoxes.Count; i++)
         {
-            if (!_listBoxes[i].InfoData.WasActive)
+            if (!_listBoxes[i]._boxController.InfoData.WasActive)
             {
-                _listBoxes[i].Activate(_minPositionX, _maxPositionX, transform.position.y);
-                BoxColor(_listBoxes[i]);
+                _listBoxes[i]._boxController.Activate(_minPositionX, _maxPositionX, transform.position.y);
+                BoxColor(_listBoxes[i]._boxController);
                 return;
             }
         }
 
-        var newBox =
+        BoxContainerSystem newBox =
             Instantiate(_prefabBox,
                 new Vector3(UnityEngine.Random.Range(_minPositionX, _maxPositionX), transform.position.y),
                 Quaternion.identity);
 
-                BoxColor(newBox);
+                BoxColor(newBox._boxController);
         _listBoxes.Add(newBox);
         BoxCreated?.Invoke(newBox);
     }
