@@ -7,7 +7,7 @@ public class BoxController : MonoBehaviour
 
     public BoxInfoData InfoData;
 
-    private void Start()
+    private void Init()
     {
         InfoData = new BoxInfoData();
         InfoData.WasActive = true;
@@ -15,6 +15,9 @@ public class BoxController : MonoBehaviour
 
     public void SetBoxColor(int quantityColors)
     {
+
+        Init();
+
         ChangColor changColor = new ChangColor(quantityColors);
         InfoData.BoxColor = changColor.RandomColor;
         GC.SuppressFinalize(changColor);
@@ -27,7 +30,8 @@ public class BoxController : MonoBehaviour
 
     public void IsActive(bool isActive)
     {
-        InfoData.WasActive = gameObject.activeInHierarchy; // todo:
+        gameObject.SetActive(isActive);
+        InfoData.WasActive = gameObject.activeInHierarchy;
     }
 
     public void Activate(float _leftEdge, float _rightEdge, float _startPositionY)

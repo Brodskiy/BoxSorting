@@ -3,32 +3,27 @@ using UnityEngine;
 
 public class CatchBox : MonoBehaviour
 {
-    private MoveBox _moveBox;
-    
-    public event Action<GameObject> CaughtBox;
+    private BoxContainerSystem _box;
+
+    public event Action<BoxContainerSystem> CaughtBox;
     public bool _isHandsFree = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<MoveBox>())
+        if(collision.GetComponent<BoxContainerSystem>())
         {
             if (_isHandsFree)
             {
+                _box = collision.GetComponent<BoxContainerSystem>();
                 collision.GetComponent<BoxController>().IsCaught(true);
 
-                _moveBox = collision.GetComponent<MoveBox>();
-                
-                MoveBoxWithPlayer();
+                _box._boxController.IsCaught(true);
+                _box._moveBox.IsBoxStop=true;
 
                 _isHandsFree = false;
 
-                CaughtBox?.Invoke(collision.gameObject);
+                CaughtBox?.Invoke(_box);
             }
         }
-    }
-
-    private void MoveBoxWithPlayer()
-    {
-        _moveBox._isBoxStop = true;
     }
 }

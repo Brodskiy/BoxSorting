@@ -19,13 +19,13 @@ public class ThrowBox : MonoBehaviour
     {
         if (_isBoxOnHand)
         {
-            _boxMove._isBoxStop = false;
+            _boxMove.IsBoxStop = false;
             _catchBox._isHandsFree = true;
             _isBoxOnHand = false;
         }
     }    
 
-    private void Caught(GameObject box)
+    private void Caught(BoxContainerSystem box)
     {
         _boxMove = box.GetComponent<MoveBox>();
         _isBoxOnHand = true;

@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class SpawnBox : MonoBehaviour, IContainerSystem
 {
-    
-    //todo: refactoring 
     private const float ZERO = 0;
 
-    [SerializeField] private BoxContainerSystem _prefabBox;    
+    [SerializeField] private BoxContainerSystem _prefabBox;
     [SerializeField] private QuantityColors _quantityColors;
 
     private List<BoxContainerSystem> _listBoxes;
@@ -86,7 +84,8 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
                 new Vector3(UnityEngine.Random.Range(_minPositionX, _maxPositionX), transform.position.y),
                 Quaternion.identity);
 
-                BoxColor(newBox._boxController);
+        BoxColor(newBox._boxController);
+        
         _listBoxes.Add(newBox);
         BoxCreated?.Invoke(newBox);
     }
