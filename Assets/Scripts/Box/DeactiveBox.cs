@@ -2,6 +2,8 @@
 
 public class DeactiveBox : MonoBehaviour
 {
+    [SerializeField] private BoxContainerSystem _box;
+
     private void Update()
     {
         ChackDeactivePosition();
@@ -11,7 +13,7 @@ public class DeactiveBox : MonoBehaviour
     {
         if (transform.position.y < IocContainer.Instance.ScreenSystem.MinPosition.y - transform.localScale.y)
         {
-            gameObject.SetActive(false);
+            _box._boxController.IsActive(false);
         }
     }
 }

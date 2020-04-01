@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,8 +11,6 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
     public event Action GameOver;
     public event Action Start;
     
-    private float _deltaTimeGame = 1;
-
     private void ActivateObject(GameObject gameObject)
     {
         gameObject.SetActive(true);
@@ -26,7 +23,8 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
 
     public void OnGameOver()
     {
-        
+        OnPause();
+
         GameOver?.Invoke();
         
         ActivateObject(_gameOverPanel);
@@ -35,14 +33,21 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
 
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
-        DeactivateObject(_gameOverPanel);
-        ActivateObject(_gameButtonPanel);
+        OnPlay();
+        if(SceneManager.GetActiveScene().name == "GameScene")
+        {
+            DeactivateObject(_gameOverPanel);
+            ActivateObject(_gameButtonPanel);
+        }
+        else
+        {
+            SceneManager.LoadScene("GameScene");
+        }
     }
 
     public void SettingBtn()
     {
-        SceneManager.LoadScene("SettingScene");
+        //SceneManager.LoadScene("SettingScene");
     }
 
     public void QuitGame()

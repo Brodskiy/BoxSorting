@@ -83,7 +83,7 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
 
     private void SetColor(int numberContainer)
     { 
-        var _changeColor = new ChangColor(numberContainer);
+        var _changeColor = new GererationColorSystem(numberContainer);
 
         _listContainers[numberContainer].GetComponent<Renderer>().material.color = _changeColor.ListColors[numberContainer];
 

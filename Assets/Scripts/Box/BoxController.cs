@@ -15,10 +15,9 @@ public class BoxController : MonoBehaviour
 
     public void SetBoxColor(int quantityColors)
     {
-
         Init();
 
-        ChangColor changColor = new ChangColor(quantityColors);
+        GererationColorSystem changColor = new GererationColorSystem(quantityColors);
         InfoData.BoxColor = changColor.RandomColor;
         GC.SuppressFinalize(changColor);
     }
@@ -31,12 +30,13 @@ public class BoxController : MonoBehaviour
     public void IsActive(bool isActive)
     {
         gameObject.SetActive(isActive);
-        InfoData.WasActive = gameObject.activeInHierarchy;
+        InfoData.WasActive = isActive;
     }
 
     public void Activate(float _leftEdge, float _rightEdge, float _startPositionY)
     {
         transform.position = new Vector3(UnityEngine.Random.Range(_leftEdge, _rightEdge), _startPositionY);
+
         IsActive(true);
         IsCaught(false);
     }
