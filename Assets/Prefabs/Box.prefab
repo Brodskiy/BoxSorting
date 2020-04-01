@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8064119312081142921}
   - component: {fileID: 295971431120060071}
   - component: {fileID: -5846569051785358219}
-  - component: {fileID: 4091912214624314374}
   - component: {fileID: -3760001495908865371}
   - component: {fileID: -2369097947999271344}
-  - component: {fileID: 783035280863643037}
+  - component: {fileID: 4232543498120723316}
+  - component: {fileID: 7529351105211582697}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -137,19 +137,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4091912214624314374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295971431120060068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf3415f3ab7e7ed4dbca4e43762fc12a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backgroundColor: {fileID: 6779772167205128223}
 --- !u!114 &-3760001495908865371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8198ec2fd640e44bb7d3ad37eab5388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isBoxStop: 0
 --- !u!114 &-2369097947999271344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +161,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef7f7e047fb47948aaefa0ed0367645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &783035280863643037
+--- !u!114 &4232543498120723316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295971431120060068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3415f3ab7e7ed4dbca4e43762fc12a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundColor: {fileID: 6779772167205128223}
+--- !u!114 &7529351105211582697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,8 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c0dbbb2e8194a4e8207d0283d918fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  _backgroundColor: {fileID: 6779772167205128223}
+  _boxController: {fileID: 4232543498120723316}
+  _moveBox: {fileID: -3760001495908865371}
+  _deactiveBox: {fileID: -2369097947999271344}
 --- !u!1 &735350088107274806
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,11 +270,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
-  _boxController: {fileID: 4091912214624314374}
-  _moveBox: {fileID: -3760001495908865371}
-  _deactiveBox: {fileID: -2369097947999271344}
->>>>>>> Refactoring
 --- !u!1 &6779772167205128223
 GameObject:
   m_ObjectHideFlags: 0

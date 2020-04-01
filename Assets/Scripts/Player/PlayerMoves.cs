@@ -17,7 +17,7 @@ class PlayerMoves : MonoBehaviour
     
     private bool _isMoveLeft;
 
-    public Transform BoxPositionInPlayerHands { get; private set; }
+    public Transform BoxPositionInPlayerHands;
 
     private void Start()
     {
