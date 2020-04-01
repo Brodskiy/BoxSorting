@@ -10,13 +10,10 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private SpawnFloor _floor;
     [SerializeField] private SpawnContainer _container;
     [SerializeField] private InputKeybordSystem _inputKeybordSystem;
-<<<<<<< HEAD
     [SerializeField] private GameButtonsController _gameButtonsController;
-=======
     [SerializeField] private GameStatusManager _gameStatusManager;
 
     private ScreenInfo _screen;
->>>>>>> Refactoring
 
     public IContainerSystem SpawnManager => _spawnBoxManager;
     public IContainerSystem Player => _player;

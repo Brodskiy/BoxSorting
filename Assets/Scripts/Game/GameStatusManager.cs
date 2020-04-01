@@ -9,17 +9,10 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _gameButtonPanel;
 
-<<<<<<< HEAD
-    private void Start()
-    {
-        _gameButtonPanel.SetActive(true);
-    }
-=======
     public event Action GameOver;
     public event Action Start;
     
     private float _deltaTimeGame = 1;
->>>>>>> Refactoring
 
     private void ActivateObject(GameObject gameObject)
     {
@@ -33,7 +26,6 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
 
     public void OnGameOver()
     {
-        Time.timeScale = 0;
         
         GameOver?.Invoke();
         
@@ -43,13 +35,9 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
 
     public void StartGame()
     {
-<<<<<<< HEAD
-        Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
-=======
         DeactivateObject(_gameOverPanel);
         ActivateObject(_gameButtonPanel);
->>>>>>> Refactoring
     }
 
     public void SettingBtn()
@@ -57,11 +45,10 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
         SceneManager.LoadScene("SettingScene");
     }
 
-<<<<<<< HEAD
     public void QuitGame()
     {
         Application.Quit();
-=======
+    }
     public void OnPause()
     {
         Time.timeScale = 0;
@@ -70,6 +57,5 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
     public void OnPlay()
     {
         Time.timeScale = 1;
->>>>>>> Refactoring
     }
 }
