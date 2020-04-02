@@ -4,7 +4,7 @@
     public interface IStatusGameSystem
     {
         event Action GameOver;
-        event Action Start;
+        event Action GameStart;
         void OnPause();
         void OnPlay();
     }

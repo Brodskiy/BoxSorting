@@ -60,7 +60,7 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
             if (_listContainers.Count > i)
             {
                 _listContainers[i].transform.localScale = new Vector3(_containerSize.x, transform.localScale.y);
-                _listContainers[i].transform.position = new Vector3(_positionFirstContainer.x, transform.position.y, -8);
+                _listContainers[i].transform.position = new Vector3(_positionFirstContainer.x, transform.position.y);
 
                 _positionFirstContainer += _containerSize;
             }
@@ -68,7 +68,7 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
             {
                 var container = Instantiate(
                     _containerPrefab, 
-                    new Vector3(_positionFirstContainer.x, transform.position.y, -8), Quaternion.identity);
+                    new Vector3(_positionFirstContainer.x, transform.position.y), Quaternion.identity);
                 
                 container.transform.localScale = new Vector3(_containerSize.x, transform.localScale.y);
 

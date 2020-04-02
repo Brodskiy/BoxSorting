@@ -81,7 +81,7 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
 
         BoxContainerSystem newBox =
             Instantiate(_prefabBox,
-                new Vector3(UnityEngine.Random.Range(_minPositionX, _maxPositionX), transform.position.y),
+                new Vector3(UnityEngine.Random.Range(_minPositionX, _maxPositionX), transform.position.y,-1),
                 Quaternion.identity);
 
         BoxColor(newBox._boxController);
