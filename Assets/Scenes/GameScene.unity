@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 270537884}
   - component: {fileID: 270537883}
   - component: {fileID: 270537885}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PanelGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 427816004}
   - component: {fileID: 427816003}
   - component: {fileID: 427816002}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PanelGameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 635693991}
   - component: {fileID: 635693990}
   - component: {fileID: 635693993}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,6 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36dab9f96841ab14bb8389412c647dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transitionLevel: {fileID: 867286616}
 --- !u!4 &867286615
 Transform:
   m_ObjectHideFlags: 0
@@ -695,7 +696,7 @@ GameObject:
   - component: {fileID: 930281428}
   - component: {fileID: 930281430}
   - component: {fileID: 930281429}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +771,7 @@ GameObject:
   - component: {fileID: 932648346}
   - component: {fileID: 932648345}
   - component: {fileID: 932648344}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -945,7 +946,7 @@ GameObject:
   - component: {fileID: 1084902826}
   - component: {fileID: 1084902825}
   - component: {fileID: 1084902828}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonThrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1173,7 @@ GameObject:
   - component: {fileID: 1193279340}
   - component: {fileID: 1193279339}
   - component: {fileID: 1193279338}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1301,7 +1302,7 @@ GameObject:
   - component: {fileID: 1257273766}
   - component: {fileID: 1257273765}
   - component: {fileID: 1257273764}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1430,7 @@ GameObject:
   - component: {fileID: 1264807310}
   - component: {fileID: 1264807312}
   - component: {fileID: 1264807311}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameOverImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1586,7 +1587,7 @@ GameObject:
   - component: {fileID: 1374129944}
   - component: {fileID: 1374129946}
   - component: {fileID: 1374129945}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PanelPause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1630,7 +1631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1665,7 +1666,7 @@ GameObject:
   - component: {fileID: 1535765639}
   - component: {fileID: 1535765637}
   - component: {fileID: 1535765641}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1763,7 +1764,7 @@ GameObject:
   - component: {fileID: 1579943609}
   - component: {fileID: 1579943608}
   - component: {fileID: 1579943607}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonContinue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1892,7 +1893,7 @@ GameObject:
   - component: {fileID: 1763463360}
   - component: {fileID: 1763463359}
   - component: {fileID: 1763463358}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2022,7 +2023,7 @@ GameObject:
   - component: {fileID: 1845551903}
   - component: {fileID: 1845551902}
   - component: {fileID: 1845551905}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2230,7 +2231,7 @@ GameObject:
   - component: {fileID: 1892426514}
   - component: {fileID: 1892426516}
   - component: {fileID: 1892426517}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ImageBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2269,7 +2270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2344,7 +2345,7 @@ GameObject:
   - component: {fileID: 1917120414}
   - component: {fileID: 1917120413}
   - component: {fileID: 1917120412}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2473,7 +2474,7 @@ GameObject:
   - component: {fileID: 2061030453}
   - component: {fileID: 2061030452}
   - component: {fileID: 2061030451}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}

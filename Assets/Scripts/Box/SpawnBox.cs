@@ -50,7 +50,7 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
         _maxPositionX = screen.MaxPosition.x - (gameObject.transform.localScale.x / 2);
     }
 
-    private void SpawnBox_LevelUp()
+    private void SpawnBox_LevelUp(int levels)
     {
         if (_spawnTime >= 1)
         {

@@ -12,7 +12,7 @@ public class SpeedBox : MonoBehaviour
         FindObjectOfType<GameLevelInspector>().LevelUp += _gameLevelInspector_LevelUp;
     }
 
-    private void _gameLevelInspector_LevelUp()
+    private void _gameLevelInspector_LevelUp(int level)
     {
         if (Speed < _maxSpeed)
         {

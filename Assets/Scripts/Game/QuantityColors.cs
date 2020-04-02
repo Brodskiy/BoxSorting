@@ -14,9 +14,9 @@ public class QuantityColors : MonoBehaviour
         FindObjectOfType<GameLevelInspector>().LevelUp += QuantityColors_LevelUp;
     }
 
-    private void QuantityColors_LevelUp()
+    private void QuantityColors_LevelUp(int level)
     {
-        if (FindObjectOfType<GameLevelInspector>().Level >= _stepUpdateQuantityColors)
+        if (level >= _stepUpdateQuantityColors)
         {
             if(GetQuantityColors < _maxQuanityColors)
             {
