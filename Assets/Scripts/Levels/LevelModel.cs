@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class LevelModel : MonoBehaviour
+﻿public class LevelModel
 {
     public float LavelTimer { get; set; }
     public float TimeSpawnBox { get; set; }

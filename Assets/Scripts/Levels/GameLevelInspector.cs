@@ -1,18 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameLevelInspector : MonoBehaviour
 {
-    [SerializeField] private TransitionLevel _transitionLevel;
+    public List<LevelModel> GameLevels;
 
     public event Action<int> LevelUp;
 
-    public int Level { get; private set; }
+    public int CurrentLevel { get; private set; }
        
     private void Start()
     {
-        _transitionLevel.LevelCompleted += GameInspector_LevelCompleted;
-        Level = 1;
+        GameLevels = new List<LevelModel>();
     }
 
     private void GameInspector_LevelCompleted()

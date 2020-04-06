@@ -5,7 +5,7 @@ public class TransitionLevel : MonoBehaviour
 {
     private const float ZERO = 0;
 
-    private float _timeLevel = 10;
+    private float _timeLevel = 30;
     private float _timerLevel;
 
     public event Action LevelCompleted;
