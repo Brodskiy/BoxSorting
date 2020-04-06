@@ -20,6 +20,7 @@ public class IocContainer : MonoBehaviour
     public IScreenInfoSystem ScreenSystem => _screen;
     public IContainerSystem Floor => _floor;
     public IContainerSystem Container => _container;
+
     public IInputSystem InputSystem => _inputKeybordSystem;
     public IInputSystem InputButtonSystem => _gameButtonsController;
 

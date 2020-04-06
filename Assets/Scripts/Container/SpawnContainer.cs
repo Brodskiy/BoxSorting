@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnContainer : MonoBehaviour, IContainerSystem
-{
-    // todo: refactoring
-    
+{    
     [SerializeField] private GameObject _containerPrefab;
-    [SerializeField] private QuantityColors _quantityColors;
 
     private int _quantityContainer;
 
@@ -15,23 +12,23 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
     private Vector3 _containerSize;
     private Vector3 _positionFirstContainer;
     private List<GameObject> _listContainers;
+    private GameLevelInspector _gameLevelInspector;
 
     public void Init()
     {
-        gameObject.SetActive(true);
-
-        _quantityContainer = _quantityColors.GetQuantityColors;
-        _listContainers = new List<GameObject>();
         _screenInfo = IocContainer.Instance.ScreenSystem;
+        _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
 
-        _quantityColors.ChangeQuantityColors += QuantityColorsChangeQuantityColors;
-
+        _quantityContainer = _gameLevelInspector.CurrentLevel.QuantityColors;
+        _gameLevelInspector.LevelUp += UpdateConatiner;
+        _listContainers = new List<GameObject>();
+        
         SpawnContainers();
     }
 
-    private void QuantityColorsChangeQuantityColors(int quanityColors)
+    private void UpdateConatiner(LevelModel level)
     {
-        _quantityContainer = quanityColors;
+        _quantityContainer = level.QuantityColors;
         SpawnContainers();
     }
 

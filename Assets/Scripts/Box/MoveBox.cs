@@ -2,9 +2,23 @@
 
 public class MoveBox : MonoBehaviour
 {
-    private float Speed { get; set; }
+    private float _speed;
+    private GameLevelInspector _gameLevelInspector;
 
     public bool IsBoxStop { get; set; }
+
+    private void Start()
+    {
+        _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
+        _speed = _gameLevelInspector.CurrentLevel.ParcelSpeed;
+
+        _gameLevelInspector.LevelUp += UpdateSpeed;
+    }
+
+    private void UpdateSpeed(LevelModel level)
+    {
+        _speed = level.ParcelSpeed;
+    }
 
     private void Update()
     {
@@ -13,8 +27,6 @@ public class MoveBox : MonoBehaviour
 
     private void Move()
     {
-        SetSpeedMove();
-
         if (IsBoxStop)
         {
             MoveWithPlayer();            
@@ -22,17 +34,12 @@ public class MoveBox : MonoBehaviour
         }
 
         Vector3 temp = transform.position;
-        temp.y -= Speed * Time.deltaTime;
+        temp.y -= _speed * Time.deltaTime;
         transform.position = temp;
     }
 
     private void MoveWithPlayer()
     {
         transform.position = FindObjectOfType<PlayerMoves>().BoxPositionInPlayerHands.position;
-    }
-
-    private void SetSpeedMove()
-    {
-        Speed = FindObjectOfType<SpeedBox>().Speed;
     }
 }

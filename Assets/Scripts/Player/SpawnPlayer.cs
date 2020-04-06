@@ -1,16 +1,11 @@
 ﻿using UnityEngine;
 
-public class SpawnPlayer : BaseSpawnObject, IContainerSystem
+public class SpawnPlayer : MonoBehaviour, IContainerSystem
 {
     [SerializeField] private PlayerMoves _playerPrefab;
 
-    public void Init() // todo: refactoring
+    public void Init()
     {
-        SpawnObject(_playerPrefab.gameObject);
-    }
-    
-    public override void SpawnObject(GameObject go)
-    {
-        Instantiate(go);
+        Instantiate(_playerPrefab.gameObject);
     }
 }
