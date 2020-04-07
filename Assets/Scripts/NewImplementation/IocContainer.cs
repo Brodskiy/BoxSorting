@@ -12,6 +12,7 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private InputKeybordSystem _inputKeybordSystem;
     [SerializeField] private GameButtonsController _gameButtonsController;
     [SerializeField] private GameStatusManager _gameStatusManager;
+    [SerializeField] private GameLevelInspector _gameLevelInspector;
 
     private ScreenInfo _screen;
 
@@ -20,6 +21,7 @@ public class IocContainer : MonoBehaviour
     public IScreenInfoSystem ScreenSystem => _screen;
     public IContainerSystem Floor => _floor;
     public IContainerSystem Container => _container;
+    public IContainerSystem GameLevel => _gameLevelInspector;
 
     public IInputSystem InputSystem => _inputKeybordSystem;
     public IInputSystem InputButtonSystem => _gameButtonsController;
@@ -31,6 +33,8 @@ public class IocContainer : MonoBehaviour
         Instance = this;
 
         _screen = new ScreenInfo(Camera.main);
+
+        GameLevel.Init();
         SpawnManager.Init();
         Player.Init();
         Floor.Init();
