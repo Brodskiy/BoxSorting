@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class LevelsViewPanel : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private LevelModel[] _gameLevels;
+    [SerializeField] private Transform _conntainer;
 
-    public void Show()
+
+    public void Show(IEnumerable<Sprite> sprites)
     {
         gameObject.SetActive(true);
     }

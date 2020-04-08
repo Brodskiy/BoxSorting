@@ -5,6 +5,8 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
 {
     [SerializeField] private LevelsContainer _levelContainer;
 
+    private ILevelContain AllLevels => _levelContainer;
+
     private float _levelTime;
     private float _timer;
     private int _activeLevel;
@@ -38,7 +40,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
 
     private void SetCurrentLevel()
     {
-        CurrentLevel = _levelContainer.Levels[_activeLevel];
+        CurrentLevel = AllLevels.Levels[_activeLevel];
         _levelTime = CurrentLevel.LevelTimer;
     }    
 }
