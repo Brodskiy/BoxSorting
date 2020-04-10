@@ -7,6 +7,7 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
 {
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _gameButtonPanel;
+    [SerializeField] private SaveLoadLevel _saveLevel;
 
     public event Action GameOver;
     public event Action GameStart;
@@ -47,6 +48,7 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
     public void QuitGame()
     {
         Application.Quit();
+        _saveLevel.SaveData();
     }
     public void OnPause()
     {

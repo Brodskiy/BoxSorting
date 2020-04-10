@@ -6,5 +6,6 @@
 		LevelTimer = levelTimer;
 		QuantityColors = quantityColors;
 		ParcelSpeed = parcelSpeed;
+		IsOpen = false;
 	}
 }
