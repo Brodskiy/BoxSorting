@@ -2,15 +2,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class GameStatusManager : MonoBehaviour, IStatusGameSystem
 {
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _gameButtonPanel;
     [SerializeField] private SaveLoadLevel _saveLevel;
+    
 
     public event Action GameOver;
     public event Action GameStart;
+
+    
 
     private void ActivateObject(GameObject gameObject)
     {
@@ -20,7 +22,7 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
     private void DeactivateObject(GameObject gameObject)
     {
         gameObject.SetActive(false);
-    }
+    }  
 
     public void OnGameOver()
     {
@@ -37,7 +39,7 @@ public class GameStatusManager : MonoBehaviour, IStatusGameSystem
         OnPlay();
 
         GameStart?.Invoke();
-        SceneManager.LoadScene("GameScene");
+       SceneManager.LoadScene("GameScene");
     }
 
     public void SettingBtn()
