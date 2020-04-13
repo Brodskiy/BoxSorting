@@ -7,6 +7,11 @@ class LevelButtonSpawn : MonoBehaviour
 
     private int _activeLevel;
 
+    private void Start()
+    {
+        Spawn();
+    }
+
     public void Spawn()
     {
         _saveLoadLevel.Load();
@@ -14,7 +19,8 @@ class LevelButtonSpawn : MonoBehaviour
 
         for (int i = 1; i <= _levelsContainer.Levels.Count; i++)
         {
-            Instantiate(_buttonPrefab);
+            var levelButton = Instantiate(_buttonPrefab);
+            levelButton.transform.position = transform.parent.position;
             _buttonPrefab.CountNumber = i;
 
             if (i <= _activeLevel)

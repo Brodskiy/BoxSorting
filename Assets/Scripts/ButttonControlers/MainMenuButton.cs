@@ -10,6 +10,10 @@ public class MainMenuButton : MonoBehaviour
     private string _loadScene;
     private bool _isLoadScene;
 
+    private void Start()
+    {
+    }
+
     private void Update()
     {
         if (_isLoadScene)
