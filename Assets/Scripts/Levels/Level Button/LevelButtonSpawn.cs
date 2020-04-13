@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 class LevelButtonSpawn : MonoBehaviour
 {
     [SerializeField] private LevelButtonBase _buttonPrefab;
     [SerializeField] private LevelsContainer _levelsContainer;
     [SerializeField] private SaveLoadLevel _saveLoadLevel;
+    [SerializeField] private Transform _parentForLevelButton;
 
     private int _activeLevel;
+
+    public List<LevelButtonBase> LevelButtons;
 
     private void Start()
     {
@@ -19,14 +23,16 @@ class LevelButtonSpawn : MonoBehaviour
 
         for (int i = 1; i <= _levelsContainer.Levels.Count; i++)
         {
-            var levelButton = Instantiate(_buttonPrefab);
-            levelButton.transform.position = transform.parent.position;
-            _buttonPrefab.CountNumber = i;
+            var button = Instantiate(_buttonPrefab, _parentForLevelButton);
+            button.CountNumber = i;
 
             if (i <= _activeLevel)
             {
-                _buttonPrefab.IsActive = true;
+                button.IsActive = true;
             }
+
+            button.GetComponent<LevelButtonView>().ShowInfo();
+            LevelButtons.Add(button);
         }
     }
 }

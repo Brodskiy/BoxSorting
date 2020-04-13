@@ -19,6 +19,15 @@ public class LevelsContainer : MonoBehaviour, ILevelContain
         new BaseLevel(3.5f, 5, 3, 5),
         new BaseLevel(3f, 5, 3, 5),
         new BaseLevel(4f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
+        new BaseLevel(3.5f, 5, 4, 5),
         new BaseLevel(3.5f, 5, 4, 5)
     };
 }

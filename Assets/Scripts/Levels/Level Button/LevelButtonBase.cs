@@ -1,12 +1,20 @@
-﻿class LevelButtonBase:LevelButtonModel
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+class LevelButtonBase:LevelButtonModel
 {
-	public LevelButtonBase(int number)
+	[SerializeField] private Button _levelButton;
+
+	public Action<int> LevelSelected;
+
+	private void Start()
 	{
-		CountNumber = number;
+		_levelButton.onClick.AddListener(LevelButtonClick);
 	}
 
-	public int LevelButtonClick()
+	private void LevelButtonClick()
 	{
-		return CountNumber;
+		LevelSelected?.Invoke(CountNumber);
 	}
 }

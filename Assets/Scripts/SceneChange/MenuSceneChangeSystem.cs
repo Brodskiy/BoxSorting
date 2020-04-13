@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneChangeSystem : MonoBehaviour
+public class MenuSceneChangeSystem : MonoBehaviour
 {
     [SerializeField] private SceneTransitionSystem _transformationSystem;
     [SerializeField] private Button _playButton;
