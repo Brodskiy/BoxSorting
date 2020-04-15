@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-class LevelButtonModel:MonoBehaviour
+﻿class LevelButtonModel
 {
     public int CountNumber { get; set; }
     public bool IsActive { get; set; }    

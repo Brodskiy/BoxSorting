@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 163631041}
   - component: {fileID: 163631040}
   - component: {fileID: 163631039}
+  - component: {fileID: 163631043}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -221,6 +222,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &163631043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163631038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4bc389fc925b134188d01a7dc69a0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelButtonSpawn: {fileID: 1941926783}
+  _sceneTransitionSystem: {fileID: 190243805}
 --- !u!1 &190243803
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,8 +546,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -167.70007}
-  m_SizeDelta: {x: 0, y: -334.80005}
+  m_AnchoredPosition: {x: -0.024963379, y: -167.70007}
+  m_SizeDelta: {x: -0.059937, y: -334.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869625384
 MonoBehaviour:
@@ -611,7 +626,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 14.300049}
-  m_SizeDelta: {x: -20, y: -1853.7}
+  m_SizeDelta: {x: 0, y: -1853.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1203884962
 GameObject:
@@ -851,8 +866,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.014953613, y: -19.025024}
-  m_SizeDelta: {x: 0, y: 1852.6}
+  m_AnchoredPosition: {x: 0.007446289, y: -19.025024}
+  m_SizeDelta: {x: -0.015015, y: 1852.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533488307
 MonoBehaviour:
@@ -1265,11 +1280,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0b9f928628ab041b196278dd52db84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonPrefab: {fileID: -3659493558360761323, guid: 170e887cbcf2f3b428c46e18e7cb30fa,
+  _buttonController: {fileID: -2949942324651161834, guid: 170e887cbcf2f3b428c46e18e7cb30fa,
     type: 3}
   _levelsContainer: {fileID: 609780527}
   _saveLoadLevel: {fileID: 1393346041}
   _parentForLevelButton: {fileID: 1941926782}
+  LevelButtons: []
 --- !u!114 &1941926784
 MonoBehaviour:
   m_ObjectHideFlags: 0
