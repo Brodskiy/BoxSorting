@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+
 class LevelButtonSpawn : MonoBehaviour
 {
     [SerializeField] private LevelButtonControler _buttonController;
@@ -11,7 +12,7 @@ class LevelButtonSpawn : MonoBehaviour
 
     public List<LevelButtonControler> LevelButtons;
 
-    private void Start()
+    private void Awake()
     {
         Spawn();
     }
@@ -19,7 +20,7 @@ class LevelButtonSpawn : MonoBehaviour
     public void Spawn()
     {
         _saveLoadLevel.Load();
-        _activeLevel = _saveLoadLevel._saveLevelData.ActiveLevels;
+        _activeLevel = _saveLoadLevel.SavedLevelData.ActiveLevels;
 
         for (int i = 1; i <= _levelsContainer.Levels.Count; i++)
         {
@@ -33,6 +34,7 @@ class LevelButtonSpawn : MonoBehaviour
 
             button.GetComponent<LevelButtonView>().ShowInfo();
             LevelButtons.Add(button);
+
         }
     }
 }

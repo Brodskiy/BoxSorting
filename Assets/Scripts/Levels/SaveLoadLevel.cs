@@ -2,10 +2,12 @@
 using UnityEngine;
 
 class SaveLoadLevel:MonoBehaviour
-{    
+{
+    public SaveLevelData SavedLevelInfo { get; private set; }//todo
+
     private string _path;
 
-    public SaveLevelData _saveLevelData = new SaveLevelData();
+    public SaveLevelData SavedLevelData = new SaveLevelData();
 
     public void Load()
     {
@@ -16,17 +18,22 @@ class SaveLoadLevel:MonoBehaviour
 #endif
         if (File.Exists(_path))
         {
-            _saveLevelData = JsonUtility.FromJson<SaveLevelData>(File.ReadAllText(_path));
+            SavedLevelData = JsonUtility.FromJson<SaveLevelData>(File.ReadAllText(_path));
         }
         else
         {
-            _saveLevelData.ActiveLevels = 1;
+            SavedLevelData.ActiveLevels = 1;
+            SavedLevelData.SelectedLevel = 1;
         }
+    }
+
+    public void SetSelectedLevel(int selectedLevel)
+    {
+        //Saved
     }
 
     public void SaveData()
     {
-        _saveLevelData.ActiveLevels = FindObjectOfType<GameLevelInspector>()._activeLevel;
-        File.WriteAllText(_path, JsonUtility.ToJson(_saveLevelData));
+        File.WriteAllText(_path, JsonUtility.ToJson(SavedLevelData));
     }
 }

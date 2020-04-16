@@ -19,7 +19,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
     public void Init()
     {
         _loadData.Load();
-        _activeLevel = _loadData._saveLevelData.ActiveLevels;
+        _activeLevel = _loadData.SavedLevelData.SelectedLevel;
         SetCurrentLevel();
     }
 
