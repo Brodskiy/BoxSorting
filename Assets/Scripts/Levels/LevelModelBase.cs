@@ -1,4 +1,4 @@
-﻿public class LevelModel
+﻿public class LevelModelBase
 {
     public float TimeSpawnParcel { get; protected set; }
     public float LevelTimer { get; protected set; }

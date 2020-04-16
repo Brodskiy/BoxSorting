@@ -11,7 +11,7 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private SpawnContainer _container;
     [SerializeField] private InputKeybordSystem _inputKeybordSystem;
     [SerializeField] private GameButtonsController _gameButtonsController;
-    [SerializeField] private GameStatusManager _gameStatusManager;
+    [SerializeField] private GameStatusView _gameStatusManager;
     [SerializeField] private GameLevelInspector _gameLevelInspector;
 
     private ScreenInfo _screen;

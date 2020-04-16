@@ -26,7 +26,7 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
         SpawnContainers();
     }
 
-    private void UpdateConatiner(LevelModel level)
+    private void UpdateConatiner(LevelModelBase level)
     {
         _quantityContainer = level.QuantityColors;
         SpawnContainers();

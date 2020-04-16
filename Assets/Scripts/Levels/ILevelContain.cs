@@ -2,5 +2,5 @@
 
 public interface ILevelContain
 {
-    List<LevelModel> Levels { get; }
+    List<LevelModelBase> Levels { get; }
 }

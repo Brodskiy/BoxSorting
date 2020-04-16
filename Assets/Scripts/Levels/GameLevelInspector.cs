@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLevelInspector : MonoBehaviour, IContainerSystem
 {
@@ -12,9 +13,9 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
     private float _timer;
     public int _activeLevel;//TODO
 
-    public event Action<LevelModel> LevelUp;
+    public event Action<LevelModelBase> LevelUp;
 
-    public LevelModel CurrentLevel { get; private set; }
+    public LevelModelBase CurrentLevel { get; private set; }
 
     public void Init()
     {
@@ -37,6 +38,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
             _timer = 0;
             SetCurrentLevel();            
             LevelUp?.Invoke(CurrentLevel);
+            SceneManager.LoadScene("LevelScene");
         }
     }
 

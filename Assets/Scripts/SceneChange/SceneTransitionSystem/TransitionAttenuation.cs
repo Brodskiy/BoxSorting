@@ -8,7 +8,7 @@ class TransitionAttenuation : SceneTransitionSystem
     [SerializeField] private float _speedAttenuation = 3f;
 
     private string _sceneName;
-    private Color _finalColor = Color.black;
+    private Color _finalColor = Color.white;
     private bool _isStartTransition;
     private bool _isAttenuationComplet;
 

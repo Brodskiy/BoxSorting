@@ -3,7 +3,7 @@ using UnityEngine;
 
 class GameLiveInspector : MonoBehaviour
 {
-    [SerializeField] private GameStatusManager _gameStatus;
+    [SerializeField] private GameStatusView _gameStatus;
 
     public int Lives { get; private set; } = 3;
 

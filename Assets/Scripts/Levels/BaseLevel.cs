@@ -1,4 +1,4 @@
-﻿public class BaseLevel:LevelModel
+﻿public class BaseLevel:LevelModelBase
 {
 	public BaseLevel(float timeSpawnParcel, float levelTimer, int quantityColors, float parcelSpeed)
 	{

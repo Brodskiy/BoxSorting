@@ -21,7 +21,7 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
 
     public event Action<BoxContainerSystem> BoxCreated;    
 
-    private void UpdateParcel(LevelModel levelInfo)
+    private void UpdateParcel(LevelModelBase levelInfo)
     {
         _spawnTime = levelInfo.TimeSpawnParcel;
         _quantityColorsBox = levelInfo.QuantityColors;

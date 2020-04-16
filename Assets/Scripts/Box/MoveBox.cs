@@ -15,7 +15,7 @@ public class MoveBox : MonoBehaviour
         _gameLevelInspector.LevelUp += UpdateSpeed;
     }
 
-    private void UpdateSpeed(LevelModel level)
+    private void UpdateSpeed(LevelModelBase level)
     {
         _speed = level.ParcelSpeed;
     }
