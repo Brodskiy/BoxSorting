@@ -43,6 +43,8 @@ public class PauseButtonsView : MonoBehaviour
 
     public void OpenStartMenu()
     {
+        IocContainer.Instance.GameStatusSystem.OnPlay();
+
         SceneManager.LoadScene("MenuScene");
     }
 

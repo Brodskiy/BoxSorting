@@ -19,7 +19,7 @@ class TransitionAttenuation : SceneTransitionSystem
             AttenuationImage();
 
             if (_isAttenuationComplet)
-            {
+            {               
                 SceneManager.LoadScene(_sceneName);
             }
         }
@@ -32,6 +32,7 @@ class TransitionAttenuation : SceneTransitionSystem
         {
             _attenuationImage.color = Color.Lerp(_attenuationImage.color, _finalColor, _speedAttenuation * Time.deltaTime);
         }
+
         else
         {
             _isAttenuationComplet = true;

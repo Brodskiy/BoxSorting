@@ -35,7 +35,7 @@ public class GameStatusView : MonoBehaviour, IStatusGameSystem
         OnPlay();
 
         GameStart?.Invoke();
-       SceneManager.LoadScene("GameScene");
+       SceneManager.LoadScene("LevelScene");
     }
 
     public void SettingBtn()

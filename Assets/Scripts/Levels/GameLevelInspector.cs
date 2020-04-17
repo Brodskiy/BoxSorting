@@ -38,6 +38,8 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
             _timer = 0;
             SetCurrentLevel();            
             LevelUp?.Invoke(CurrentLevel);
+            _loadData.SavedLevelData.ActiveLevels = _activeLevel;
+            _loadData.SaveData();
             SceneManager.LoadScene("LevelScene");
         }
     }
