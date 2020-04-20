@@ -124,7 +124,7 @@ TextureImporter:
         width: 299
         height: 718
       alignment: 9
-      pivot: {x: 0.4015889, y: 0.002094357}
+      pivot: {x: 0.32660472, y: 0.37113157}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,7 +145,7 @@ TextureImporter:
         width: 292
         height: 718
       alignment: 9
-      pivot: {x: 0.3818675, y: 0.0021630493}
+      pivot: {x: 0.30387282, y: 0.36873335}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -166,7 +166,7 @@ TextureImporter:
         width: 292
         height: 718
       alignment: 9
-      pivot: {x: 0.38015538, y: 0.0021498566}
+      pivot: {x: 0.30372787, y: 0.3660672}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -187,7 +187,7 @@ TextureImporter:
         width: 320
         height: 718
       alignment: 9
-      pivot: {x: 0.35043105, y: 0.0021153952}
+      pivot: {x: 0.28269464, y: 0.36606038}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -208,7 +208,7 @@ TextureImporter:
         width: 352
         height: 718
       alignment: 9
-      pivot: {x: 0.3167964, y: 0.0021368465}
+      pivot: {x: 0.25215566, y: 0.36191565}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: PlayerThrowBox_5
       rect:
         serializedVersion: 2
-        x: 1711
+        x: 1710
         y: 0
         width: 401
         height: 718
       alignment: 9
-      pivot: {x: 0.27865028, y: 0.002098968}
+      pivot: {x: 0.22091714, y: 0.36599234}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

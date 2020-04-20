@@ -5,7 +5,7 @@ class GameLiveInspector : MonoBehaviour
 {
     [SerializeField] private GameStatusView _gameStatus;
 
-    public int Lives { get; private set; } = 3;
+    public int Lives { get; private set; } = 500;//todo
 
     public event Action GameOver;
 

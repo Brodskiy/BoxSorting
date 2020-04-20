@@ -3,15 +3,16 @@
 public class MoveBox : MonoBehaviour
 {
     private float _speed;
+
     private GameLevelInspector _gameLevelInspector;
 
-    public bool IsBoxStop { get; set; }
+    public bool IsBoxStop { get; set; }//todo
+    public bool IsThrowBox { get; set; }//todo
 
     private void Start()
     {
         _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
         _speed = _gameLevelInspector.CurrentLevel.ParcelSpeed;
-
         _gameLevelInspector.LevelUp += UpdateSpeed;
     }
 
@@ -29,8 +30,24 @@ public class MoveBox : MonoBehaviour
     {
         if (IsBoxStop)
         {
-            MoveWithPlayer();            
+            MoveWithPlayer();
             return;
+        }
+
+        if (IsThrowBox)
+        {
+            if(transform.position.y <= -3.5f)
+            {
+                transform.localScale = new Vector3(
+                transform.localScale.x - 0.02f,
+                transform.localScale.y - 0.02f);
+            }
+            else
+            {
+                transform.localScale = new Vector3(
+                transform.localScale.x + 0.01f,
+                transform.localScale.y + 0.01f);
+            }            
         }
 
         Vector3 temp = transform.position;
@@ -41,5 +58,6 @@ public class MoveBox : MonoBehaviour
     private void MoveWithPlayer()
     {
         transform.position = FindObjectOfType<PlayerMoves>().BoxPositionInPlayerHands.position;
+        IsThrowBox = true;
     }
 }

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 954793ea1a4848448a39b0f1d1feee5d
+guid: e84feeb23f9b116469c8a8534bd66b66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7869757738201698824
-    second: PlayerStay_0
+      213: 3922611413326962764
+    second: PlayerStayWhithBox_0
   - first:
-      213: 645391754621603376
-    second: PlayerStay_1
+      213: -7686520456004637200
+    second: PlayerStayWhithBox_1
   - first:
-      213: -274348579500475313
-    second: PlayerStay_2
+      213: -3915214385945940472
+    second: PlayerStayWhithBox_2
   - first:
-      213: 2257400810803393236
-    second: PlayerStay_3
+      213: -842786719782739240
+    second: PlayerStayWhithBox_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -110,85 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerStay_0
+      name: PlayerStayWhithBox_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 247
-        height: 731
+        width: 235
+        height: 718
       alignment: 9
-      pivot: {x: 0.4006831, y: 0.36433092}
+      pivot: {x: 0.4112294, y: 0.36643642}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 802d4e597fef63d60800000000000000
-      internalID: 7869757738201698824
+      spriteID: c402f3b2c4aef6630800000000000000
+      internalID: 3922611413326962764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerStay_1
+      name: PlayerStayWhithBox_1
       rect:
         serializedVersion: 2
-        x: 293
+        x: 292
         y: 0
-        width: 247
-        height: 731
+        width: 231
+        height: 724
       alignment: 9
-      pivot: {x: 0.41704866, y: 0.35903308}
+      pivot: {x: 0.4414373, y: 0.3637799}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03ecf23a164e4f800800000000000000
-      internalID: 645391754621603376
+      spriteID: 0fde115ce5ef35590800000000000000
+      internalID: -7686520456004637200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerStay_2
+      name: PlayerStayWhithBox_2
       rect:
         serializedVersion: 2
-        x: 568
+        x: 566
         y: 0
-        width: 247
-        height: 731
+        width: 235
+        height: 728
       alignment: 9
-      pivot: {x: 0.42330796, y: 0.36102346}
+      pivot: {x: 0.4542987, y: 0.36238852}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4cbd36ab61513cf0800000000000000
-      internalID: -274348579500475313
+      spriteID: 80e613a724d5aa9c0800000000000000
+      internalID: -3915214385945940472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerStay_3
+      name: PlayerStayWhithBox_3
       rect:
         serializedVersion: 2
         x: 834
         y: 0
-        width: 247
+        width: 239
         height: 731
       alignment: 9
-      pivot: {x: 0.4494048, y: 0.36211386}
+      pivot: {x: 0.46643552, y: 0.3611998}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d27d93c316e35f10800000000000000
-      internalID: 2257400810803393236
+      spriteID: 8d2eee191f1dd44f0800000000000000
+      internalID: -842786719782739240
       vertices: []
       indices: 
       edges: []
