@@ -7,14 +7,21 @@ public class AnimationPlayer : MonoBehaviour
 
     private void Start()
     {
+        IocContainer.Instance.InputButtonSystem.OnClicked += UpdateBehaviourPlayer;
+        IocContainer.Instance.InputButtonSystem.OnClickedOff += InputSystem_OnClickedOff;
+
         IocContainer.Instance.InputSystem.OnClicked += UpdateBehaviourPlayer;
         IocContainer.Instance.InputSystem.OnClickedOff += InputSystem_OnClickedOff;
+
         _catchBox.CaughtBox += _catchBox_CaughtBox;
     }
 
     private void _catchBox_CaughtBox(BoxContainerSystem obj)
     {
-        _animator.SetInteger("Stay", 3);
+        if (_animator.GetInteger("Stay") == 0)
+        {
+            _animator.SetInteger("Stay", 3);
+        }
     }
 
     private void InputSystem_OnClickedOff()

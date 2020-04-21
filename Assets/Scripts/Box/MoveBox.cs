@@ -36,18 +36,12 @@ public class MoveBox : MonoBehaviour
 
         if (IsThrowBox)
         {
-            if(transform.position.y <= -3.5f)
+            if (transform.position.y <= -3.5f)
             {
                 transform.localScale = new Vector3(
-                transform.localScale.x - 0.02f,
-                transform.localScale.y - 0.02f);
+                transform.localScale.x - 0.01f,
+                transform.localScale.y - 0.01f);
             }
-            else
-            {
-                transform.localScale = new Vector3(
-                transform.localScale.x + 0.01f,
-                transform.localScale.y + 0.01f);
-            }            
         }
 
         Vector3 temp = transform.position;
