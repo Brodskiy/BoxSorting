@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 class TransitionAttenuation : SceneTransitionSystem
 {
     [SerializeField] private Image _attenuationImage;
-    [SerializeField] private float _speedAttenuation = 3f;
+    [SerializeField] private float _speedAttenuation = 0.5f;
 
     private string _sceneName;
     private Color _finalColor = Color.white;
@@ -19,7 +19,7 @@ class TransitionAttenuation : SceneTransitionSystem
             AttenuationImage();
 
             if (_isAttenuationComplet)
-            {               
+            {                
                 SceneManager.LoadScene(_sceneName);
             }
         }

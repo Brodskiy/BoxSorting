@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PauseButtonsView : MonoBehaviour
@@ -10,42 +10,32 @@ public class PauseButtonsView : MonoBehaviour
     [SerializeField] private Button _btnPause;
     [SerializeField] private Button _btnContinue;
     [SerializeField] private Button _btnRestart;
-    [SerializeField] private Button _btnMainMenu;
+    [SerializeField] private Button _btnLevel;
+
 
     private void Start()
     {
         _btnPause.onClick.AddListener(PauseGame);
         _btnContinue.onClick.AddListener(ContinueGame);
-        _btnRestart.onClick.AddListener(RestartGame);
-        _btnMainMenu.onClick.AddListener(OpenStartMenu);
-    }   
+        _btnLevel.onClick.AddListener(OnPlay);
+        _btnRestart.onClick.AddListener(OnPlay);
+    }
+
+    private void OnPlay()
+    {
+        IocContainer.Instance.GameStatusSystem.OnPlay();
+    }
 
     public void PauseGame()
     {
-        IocContainer.Instance.GameStatusSystem.OnPause();
-        
+        IocContainer.Instance.GameStatusSystem.OnPause();        
         ChangeView(false);
     }
 
     public void ContinueGame()
     {
         IocContainer.Instance.GameStatusSystem.OnPlay();
-        
         ChangeView(true);
-    }
-
-    public void RestartGame()
-    {
-        IocContainer.Instance.GameStatusSystem.OnPlay();
-        
-        SceneManager.LoadScene("GameScene");
-    }
-
-    public void OpenStartMenu()
-    {
-        IocContainer.Instance.GameStatusSystem.OnPlay();
-
-        SceneManager.LoadScene("MenuScene");
     }
 
     private void ChangeView(bool status)

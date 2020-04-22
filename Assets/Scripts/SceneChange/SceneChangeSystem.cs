@@ -1,20 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuSceneChangeSystem : MonoBehaviour
+public class SceneChangeSystem : MonoBehaviour
 {
     [SerializeField] private SceneTransitionSystem _transformationSystem;
-    [SerializeField] private Button _playButton;
-    [SerializeField] private Button _levelButton;
+    [SerializeField] private Button _btnPlay;
+    [SerializeField] private Button _btnLevel;
+    [SerializeField] private Button _btnQuit;
 
     private string _gameScene = "GameScene";
     private string _levelScene = "LevelScene";
 
     private void Start()
     {
-        _playButton.onClick.AddListener(PlayButtonClick);
-        _levelButton.onClick.AddListener(LevelButtonClick);
-    }    
+        _btnPlay.onClick.AddListener(PlayButtonClick);
+        _btnLevel.onClick.AddListener(LevelButtonClick);
+        _btnQuit.onClick.AddListener(QuitButtonClick);
+    }
+
+    private void QuitButtonClick()
+    {
+        Application.Quit();
+    }
 
     private void PlayButtonClick()
     {
