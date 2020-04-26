@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-class GameLevelController:MonoBehaviour//todo
+class GameLevelController:MonoBehaviour
 {
     [SerializeField] private LevelsContainer _levelsContainer;
     [SerializeField] private SaveLoadLevel _saveLoadLevel;

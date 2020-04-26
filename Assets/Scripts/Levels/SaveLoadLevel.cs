@@ -3,8 +3,6 @@ using UnityEngine;
 
 class SaveLoadLevel:MonoBehaviour
 {
-    public SaveLevelData SavedLevelInfo { get; private set; }//todo
-
     private string _path;
 
     public SaveLevelData SavedLevelData = new SaveLevelData();
@@ -25,11 +23,6 @@ class SaveLoadLevel:MonoBehaviour
             SavedLevelData.ActiveLevels = 1;
             SavedLevelData.SelectedLevel = 1;
         }
-    }
-
-    public void SetSelectedLevel(int selectedLevel)
-    {
-        //Saved
     }
 
     public void SaveData()

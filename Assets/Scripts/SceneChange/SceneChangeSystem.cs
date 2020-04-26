@@ -11,6 +11,11 @@ public class SceneChangeSystem : MonoBehaviour
     private string _gameScene = "GameScene";
     private string _levelScene = "LevelScene";
 
+    public void RunGameScene()
+    {
+        _transformationSystem.TransitionToScene(_gameScene);
+    }
+
     private void Start()
     {
         _btnPlay.onClick.AddListener(PlayButtonClick);

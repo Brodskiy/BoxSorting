@@ -85,6 +85,6 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
 
         _quantityColorsBox = _gameLevelInspector.CurrentLevel.QuantityColors;
         _spawnTime = _gameLevelInspector.CurrentLevel.TimeSpawnParcel;
-        _gameLevelInspector.LevelUp += UpdateParcel;
+        _gameLevelInspector.LevelPassed += UpdateParcel;
     }
 }
