@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameLevelInspector : MonoBehaviour, IContainerSystem
@@ -23,7 +22,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
     public void Init()
     {
         _loadData.Load();
-        _activeLevel = _loadData.SavedLevelData.SelectedLevel;
+        _activeLevel = _loadData.SavedLevelData.ActiveLevels;
         SetCurrentLevel();
     }
 

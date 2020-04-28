@@ -9,6 +9,8 @@ public class MoveBox : MonoBehaviour
     public bool IsBoxStop { get; set; }//todo
     public bool IsThrowBox { get; set; }//todo
 
+    private float _stapScale = 0.01f;
+
     private void Start()
     {
         _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
@@ -39,8 +41,8 @@ public class MoveBox : MonoBehaviour
             if (transform.position.y <= -3.5f)
             {
                 transform.localScale = new Vector3(
-                transform.localScale.x - 0.01f,
-                transform.localScale.y - 0.01f);
+                transform.localScale.x - _stapScale,
+                transform.localScale.y - _stapScale);
             }
         }
 

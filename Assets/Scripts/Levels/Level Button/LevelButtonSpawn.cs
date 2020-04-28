@@ -34,7 +34,6 @@ class LevelButtonSpawn : MonoBehaviour
 
             button.GetComponent<LevelButtonView>().ShowInfo();
             LevelButtons.Add(button);
-
         }
     }
 }

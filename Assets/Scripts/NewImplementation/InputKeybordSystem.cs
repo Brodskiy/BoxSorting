@@ -42,8 +42,5 @@ class InputKeybordSystem : MonoBehaviour, IInputSystem
         {
             OnClickedOff?.Invoke();
         }
-    }
-
-
-    
+    }    
 }

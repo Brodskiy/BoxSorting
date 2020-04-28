@@ -4,20 +4,21 @@ using UnityEngine;
 class PlayerMoves : MonoBehaviour
 {
     private const float TWO = 2;
-    
+
+    [SerializeField] private float _speed = 10;
+    [SerializeField] private float _stapDistance = 0.3f;
+
     private EInputState _direction = EInputState.None;
     
     public event Action ThrowBoxDown;
 
-    private float _speed = 10;
-    private float _stapDistance = 0.3f;
+    public Transform BoxPositionInPlayerHands;
+
     private float _temp;
     private float _minPositionX;
     private float _maxPositionX;
     
-    private bool _isMoveLeft;
-
-    public Transform BoxPositionInPlayerHands;
+    private bool _isMoveLeft;    
 
     private void Start()
     {
@@ -38,27 +39,6 @@ class PlayerMoves : MonoBehaviour
         }
 
         Move();
-    }
-
-    private void Move()
-    {
-        if (_direction == EInputState.Left)
-        {
-            _temp -= _stapDistance * _speed * Time.deltaTime;
-        }
-
-        if (_direction == EInputState.Right)
-        {
-            _temp += _stapDistance * _speed * Time.deltaTime;
-        }
-
-        _temp = Mathf.Clamp(_temp, _minPositionX, _maxPositionX);
-        transform.position = new Vector3(_temp, transform.position.y, -1);
-    }
-
-    private void MirrorPlayer()
-    {
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
     }
 
     public void MoveLeft()
@@ -91,5 +71,26 @@ class PlayerMoves : MonoBehaviour
     public void ThrowBox()
     {
         ThrowBoxDown?.Invoke();
+    }
+
+    private void Move()
+    {
+        if (_direction == EInputState.Left)
+        {
+            _temp -= _stapDistance * _speed * Time.deltaTime;
+        }
+
+        if (_direction == EInputState.Right)
+        {
+            _temp += _stapDistance * _speed * Time.deltaTime;
+        }
+
+        _temp = Mathf.Clamp(_temp, _minPositionX, _maxPositionX);
+        transform.position = new Vector3(_temp, transform.position.y, -1);
+    }
+
+    private void MirrorPlayer()
+    {
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
     }
 }

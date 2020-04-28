@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameStatusView : MonoBehaviour, IStatusGameSystem
 {
@@ -9,17 +8,7 @@ public class GameStatusView : MonoBehaviour, IStatusGameSystem
     
     public event Action GameOver;
     public event Action GameStart;
-
-    private void ActivateObject(GameObject gameObject)
-    {
-        gameObject.SetActive(true);
-    }
-
-    private void DeactivateObject(GameObject gameObject)
-    {
-        gameObject.SetActive(false);
-    }  
-
+    
     public void OnGameOver()
     {
         OnPause();
@@ -33,20 +22,8 @@ public class GameStatusView : MonoBehaviour, IStatusGameSystem
     public void StartGame()
     {
         OnPlay();
-
-        GameStart?.Invoke();
-       SceneManager.LoadScene("LevelScene");
     }
 
-    public void SettingBtn()
-    {
-        //SceneManager.LoadScene("SettingScene");
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
     public void OnPause()
     {
         Time.timeScale = 0;
@@ -55,5 +32,15 @@ public class GameStatusView : MonoBehaviour, IStatusGameSystem
     public void OnPlay()
     {
         Time.timeScale = 1;
+    }
+
+    private void ActivateObject(GameObject gameObject)
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void DeactivateObject(GameObject gameObject)
+    {
+        gameObject.SetActive(false);
     }
 }
