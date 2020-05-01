@@ -8,9 +8,12 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
 
     [SerializeField] private BoxContainerSystem _prefabBox;
 
-    private GameLevelInspector _gameLevelInspector;
+    public event Action<BoxContainerSystem> BoxCreated;
 
-    private List<BoxContainerSystem> _listBoxes;
+    public List<BoxContainerSystem> _listBoxes;
+
+    private GameLevelInspector _gameLevelInspector;    
+
     private float _spawnTime;
     private float _timet;
 
@@ -19,7 +22,7 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
     private float _minPositionX;
     private float _maxPositionX;
 
-    public event Action<BoxContainerSystem> BoxCreated;    
+        
 
     private void UpdateParcel(LevelModelBase levelInfo)
     {

@@ -19,7 +19,8 @@ class TransitionAttenuation : SceneTransitionSystem
             AttenuationImage();
 
             if (_isAttenuationComplet)
-            {                
+            {
+                Time.timeScale = 1;
                 SceneManager.LoadScene(_sceneName);
             }
         }

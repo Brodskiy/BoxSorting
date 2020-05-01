@@ -2,7 +2,7 @@
 
 public class MoveBox : MonoBehaviour
 {
-    private float _speed;
+    public float _speed;
 
     private GameLevelInspector _gameLevelInspector;
 

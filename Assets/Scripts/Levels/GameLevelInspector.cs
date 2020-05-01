@@ -7,7 +7,8 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
     [SerializeField] private LevelsContainer _levelContainer;
     [SerializeField] private SaveLoadLevel _loadData;
     [SerializeField] private SceneChangeSystem _sceneChangeSystem;
-    [SerializeField] private Text _textLevelPassed;
+    [SerializeField] private SpawnBox _spawnBox;
+    [SerializeField] private GameObject _panelLevelPassed;
 
     private ILevelContain AllLevels => _levelContainer;
 
@@ -22,7 +23,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
     public void Init()
     {
         _loadData.Load();
-        _activeLevel = _loadData.SavedLevelData.ActiveLevels;
+        _activeLevel = _loadData.SavedLevelData.SelectedLevel;
         SetCurrentLevel();
     }
 
@@ -36,19 +37,46 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
     {
         if (_timer >= _levelTime)
         {
-            _activeLevel++;
-            _timer = 0;
-            SetCurrentLevel();            
-            LevelPassed?.Invoke(CurrentLevel);
+            DataRecording();
+        }
+    }
 
-            if(_loadData.SavedLevelData.ActiveLevels < _activeLevel)
-            {
-                _loadData.SavedLevelData.ActiveLevels = _activeLevel;
-            }
-           
-            _loadData.SaveData();
-            _textLevelPassed.enabled = true;
-            _sceneChangeSystem.RunGameScene();
+    private void DataRecording()
+    {        
+        _activeLevel++;
+        _timer = 0;
+        SetCurrentLevel();
+        LevelPassed?.Invoke(CurrentLevel);
+        BoxesStop();
+
+        SetNewLevelData();
+        RunNewLevel();
+    }
+
+    private void SetNewLevelData()
+    {
+        _loadData.SavedLevelData.SelectedLevel = _activeLevel;
+
+        if (_loadData.SavedLevelData.ActiveLevels < _activeLevel)
+        {
+            _loadData.SavedLevelData.ActiveLevels = _activeLevel;
+        }
+
+        _loadData.SaveData();
+    }
+
+    private void RunNewLevel()
+    {      
+        _panelLevelPassed.SetActive(true);
+        _panelLevelPassed.GetComponentInChildren<Text>().fontSize++;
+        _sceneChangeSystem.RunGameScene();
+    }
+
+    private void BoxesStop()
+    {
+        foreach (var box in _spawnBox._listBoxes)
+        {
+            box._moveBox._speed = 0;
         }
     }
 
