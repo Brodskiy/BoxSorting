@@ -9,6 +9,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
     [SerializeField] private SceneChangeSystem _sceneChangeSystem;
     [SerializeField] private SpawnBox _spawnBox;
     [SerializeField] private GameObject _panelLevelPassed;
+    [SerializeField] private DisplayInfo _displayTime;
 
     private ILevelContain AllLevels => _levelContainer;
 
@@ -35,6 +36,8 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
 
     private void TimeControl()
     {
+        _displayTime.DisplayText(_levelTime - _timer, "Time");
+
         if (_timer >= _levelTime)
         {
             DataRecording();
@@ -72,7 +75,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
         _sceneChangeSystem.RunGameScene();
     }
 
-    private void BoxesStop()
+    private void BoxesStop()//todo
     {
         foreach (var box in _spawnBox._listBoxes)
         {

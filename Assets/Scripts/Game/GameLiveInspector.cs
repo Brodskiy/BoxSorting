@@ -4,10 +4,16 @@ using UnityEngine;
 class GameLiveInspector : MonoBehaviour
 {
     [SerializeField] private GameStatusView _gameStatus;
+    [SerializeField] private DisplayInfo _textDisplayLive;
 
     public int Lives { get; private set; } = 3;
 
     public event Action GameOver;
+
+    private void Start()
+    {
+        _textDisplayLive.DisplayText(Lives, "Lives");
+    }
 
     private void GameOverControll()
     {
@@ -21,6 +27,7 @@ class GameLiveInspector : MonoBehaviour
     public void LiveIsLost()
     {
         Lives--;
+        _textDisplayLive.DisplayText(Lives, "Lives");
         GameOverControll();
     }
 }
