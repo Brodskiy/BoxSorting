@@ -13,20 +13,25 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private GameButtonsController _gameButtonsController;
     [SerializeField] private GameStatusView _gameStatusManager;
     [SerializeField] private GameLevelInspector _gameLevelInspector;
+    [SerializeField] private AudioManager _audioManager;
 
     private ScreenInfo _screen;
 
-    public IContainerSystem SpawnManager => _spawnBoxManager;
+    public ISpawnComplit SpawnManager => _spawnBoxManager;
+
     public IContainerSystem Player => _player;
     public IScreenInfoSystem ScreenSystem => _screen;
     public IContainerSystem Floor => _floor;
-    public IContainerSystem Container => _container;
+    public IContainerSystem Container => _container;   
+    public IContainerSystem Audio => _audioManager;
     public IContainerSystem GameLevel => _gameLevelInspector;
+
 
     public IInputSystem InputSystem => _inputKeybordSystem;
     public IInputSystem InputButtonSystem => _gameButtonsController;
 
     public IStatusGameSystem GameStatusSystem => _gameStatusManager;
+
 
     private void Start()
     {
@@ -39,5 +44,6 @@ public class IocContainer : MonoBehaviour
         Player.Init();
         Floor.Init();
         Container.Init();
+        Audio.Init();
     }
 }

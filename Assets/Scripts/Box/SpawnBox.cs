@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnBox : MonoBehaviour, IContainerSystem
+public class SpawnBox : MonoBehaviour, ISpawnComplit
 {
     private const float ZERO = 0;
 
     [SerializeField] private BoxContainerSystem _prefabBox;
 
     public event Action<BoxContainerSystem> BoxCreated;
+    public event Action SpawnComplit;
 
+    
     public List<BoxContainerSystem> _listBoxes;
 
-    private GameLevelInspector _gameLevelInspector;    
+    private GameLevelInspector _gameLevelInspector;
 
+    private bool _isCanSpawn;
     private float _spawnTime;
     private float _timet;
 
@@ -22,19 +25,40 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
     private float _minPositionX;
     private float _maxPositionX;
 
-        
+    private void Update()
+    {
+        InitBox();
+        if (_isCanSpawn)
+        {
+            _timet += Time.deltaTime;
+        }        
+    }
+
+    public void Init()
+    {
+        _isCanSpawn = true;
+
+        gameObject.SetActive(true);
+        SetInitPosition();
+        _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
+
+        _listBoxes = new List<BoxContainerSystem>();
+
+        _quantityColorsBox = _gameLevelInspector.CurrentLevel.QuantityColors;
+        _spawnTime = _gameLevelInspector.CurrentLevel.TimeSpawnParcel;
+        _gameLevelInspector.LevelPassed += UpdateParcel;
+    }
+
+    public void IsCanSpawn(bool isCanSpawn)
+    {
+        _isCanSpawn = isCanSpawn;
+    }
 
     private void UpdateParcel(LevelModelBase levelInfo)
     {
         _spawnTime = levelInfo.TimeSpawnParcel;
         _quantityColorsBox = levelInfo.QuantityColors;
-    }
-
-    private void Update()
-    {
-        InitBox();
-        _timet += Time.deltaTime;
-    }
+    }   
 
     private void SetInitPosition()
     {
@@ -56,6 +80,7 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
                 {
                     box._boxController.Activate(_minPositionX, _maxPositionX, transform.position.y);
                     BoxColor(box._boxController);
+                    SpawnComplit?.Invoke();
                     return;
                 }
             }
@@ -69,6 +94,7 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
 
             _listBoxes.Add(newBox);
             BoxCreated?.Invoke(newBox);
+            SpawnComplit?.Invoke();
         }
     }
 
@@ -78,16 +104,5 @@ public class SpawnBox : MonoBehaviour, IContainerSystem
         box._backgroundColor.GetComponent<Renderer>().material.color = box.InfoData.BoxColor;
     }
 
-    public void Init()
-    {
-        gameObject.SetActive(true);
-        SetInitPosition();
-        _gameLevelInspector = FindObjectOfType<GameLevelInspector>();        
-
-        _listBoxes = new List<BoxContainerSystem>();
-
-        _quantityColorsBox = _gameLevelInspector.CurrentLevel.QuantityColors;
-        _spawnTime = _gameLevelInspector.CurrentLevel.TimeSpawnParcel;
-        _gameLevelInspector.LevelPassed += UpdateParcel;
-    }
+    
 }

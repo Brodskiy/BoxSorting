@@ -40,17 +40,17 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
 
         if (_timer >= _levelTime)
         {
-            DataRecording();
+            StartNextLevel();
         }
     }
 
-    private void DataRecording()
-    {        
+    private void StartNextLevel()
+    {
         _activeLevel++;
         _timer = 0;
         SetCurrentLevel();
         LevelPassed?.Invoke(CurrentLevel);
-        BoxesStop();
+        BoxAndSpawnStop();
 
         SetNewLevelData();
         RunNewLevel();
@@ -71,12 +71,13 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
     private void RunNewLevel()
     {      
         _panelLevelPassed.SetActive(true);
-        _panelLevelPassed.GetComponentInChildren<Text>().fontSize++;
         _sceneChangeSystem.RunGameScene();
     }
 
-    private void BoxesStop()//todo
+    private void BoxAndSpawnStop()
     {
+        _spawnBox.IsCanSpawn(false);
+
         foreach (var box in _spawnBox._listBoxes)
         {
             box._moveBox._speed = 0;

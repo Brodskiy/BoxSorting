@@ -9,6 +9,7 @@ class GameLiveInspector : MonoBehaviour
     public int Lives { get; private set; } = 3;
 
     public event Action GameOver;
+    public event Action LiveLost;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ class GameLiveInspector : MonoBehaviour
     {
         Lives--;
         _textDisplayLive.DisplayText(Lives, "Lives");
+        LiveLost?.Invoke();
         GameOverControll();
     }
 }
