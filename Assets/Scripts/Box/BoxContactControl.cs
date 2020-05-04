@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class BoxColorControl : MonoBehaviour
+public class BoxContactControl : MonoBehaviour
 {
     public event Action BoxCrash;
     private void OnTriggerEnter2D(Collider2D collision)

@@ -14,45 +14,45 @@ public class AudioManager : MonoBehaviour, IContainerSystem
     [SerializeField] private GameLiveInspector _gameLiveInspector;
     public void Init()
     {
-        IocContainer.Instance.InputSystem.OnClicked += _input_OnClicked;
-        IocContainer.Instance.InputSystem.OnClickedOff += _input_OnClickedOff;
+        IocContainer.Instance.InputSystem.OnClicked += Input_OnClicked;
+        IocContainer.Instance.InputSystem.OnClickedOff += Input_OnClickedOff;
 
-        IocContainer.Instance.InputButtonSystem.OnClicked += _input_OnClicked;
-        IocContainer.Instance.InputButtonSystem.OnClickedOff += _input_OnClickedOff;
+        IocContainer.Instance.InputButtonSystem.OnClicked += Input_OnClicked;
+        IocContainer.Instance.InputButtonSystem.OnClickedOff += Input_OnClickedOff;
         
-        IocContainer.Instance.SpawnManager.SpawnComplit += _spawnBoxEvetn_SpawnComplit;
+        IocContainer.Instance.SpawnManager.SpawnComplit += SpawnBoxEvetn_SpawnComplit;
 
-        _gameLevelInspector.LevelPassed += _gameLevelInspector_LevelPassed;
-        _gameLiveInspector.GameOver += _gameLiveInspector_GameOver;
-        _gameLiveInspector.LiveLost += _gameLiveInspector_LiveLost;
+        _gameLevelInspector.LevelPassed += GameLevelInspector_LevelPassed;
+        _gameLiveInspector.GameOver += GameLiveInspector_GameOver;
+        _gameLiveInspector.LiveLost += GameLiveInspector_LiveLost;
     }
 
-    private void _gameLiveInspector_LiveLost()
+    private void GameLiveInspector_LiveLost()
     {
         _boxCrash.Play();
     }
 
-    private void _gameLiveInspector_GameOver()
+    private void GameLiveInspector_GameOver()
     {
         _gameOver.Play();
     }
 
-    private void _spawnBoxEvetn_SpawnComplit()
+    private void SpawnBoxEvetn_SpawnComplit()
     {
         _spawnBox.Play();
     }
 
-    private void _gameLevelInspector_LevelPassed(LevelModelBase obj)
+    private void GameLevelInspector_LevelPassed(LevelModelBase obj)
     {
         _levelDane.Play();
     }
 
-    private void _input_OnClickedOff()
+    private void Input_OnClickedOff()
     {
         _stay.Play();
     }
 
-    private void _input_OnClicked(EInputState obj)
+    private void Input_OnClicked(EInputState obj)
     {
         switch (obj)
         {

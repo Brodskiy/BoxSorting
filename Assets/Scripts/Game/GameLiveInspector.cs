@@ -3,7 +3,7 @@ using UnityEngine;
 
 class GameLiveInspector : MonoBehaviour
 {
-    [SerializeField] private GameStatusView _gameStatus;
+    [SerializeField] private GameStatusController _gameStatus;
     [SerializeField] private DisplayInfo _textDisplayLive;
 
     public int Lives { get; private set; } = 3;
@@ -21,7 +21,7 @@ class GameLiveInspector : MonoBehaviour
         if (Lives <= 0)
         {
             GameOver?.Invoke();
-            _gameStatus.OnGameOver();
+            _gameStatus.GameOver();
         }
     }
 

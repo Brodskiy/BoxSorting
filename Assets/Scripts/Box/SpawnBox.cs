@@ -10,13 +10,11 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
 
     public event Action<BoxContainerSystem> BoxCreated;
     public event Action SpawnComplit;
-
     
     public List<BoxContainerSystem> _listBoxes;
 
     private GameLevelInspector _gameLevelInspector;
 
-    private bool _isCanSpawn;
     private float _spawnTime;
     private float _timet;
 
@@ -28,7 +26,7 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
     private void Update()
     {
         InitBox();
-        if (_isCanSpawn)
+        if (IocContainer.Instance.GameStatusSystem.IsCanSpawn)
         {
             _timet += Time.deltaTime;
         }        
@@ -36,9 +34,6 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
 
     public void Init()
     {
-        _isCanSpawn = true;
-
-        gameObject.SetActive(true);
         SetInitPosition();
         _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
 
@@ -47,11 +42,6 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
         _quantityColorsBox = _gameLevelInspector.CurrentLevel.QuantityColors;
         _spawnTime = _gameLevelInspector.CurrentLevel.TimeSpawnParcel;
         _gameLevelInspector.LevelPassed += UpdateParcel;
-    }
-
-    public void IsCanSpawn(bool isCanSpawn)
-    {
-        _isCanSpawn = isCanSpawn;
     }
 
     private void UpdateParcel(LevelModelBase levelInfo)
@@ -101,8 +91,6 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
     private void BoxColor(BoxController box)
     {
         box.SetBoxColor(_quantityColorsBox);
-        box._backgroundColor.GetComponent<Renderer>().material.color = box.InfoData.BoxColor;
-    }
-
-    
+        box.GetComponent<Renderer>().material.color = box.InfoData.BoxColor;
+    }    
 }

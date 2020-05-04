@@ -7,11 +7,11 @@ public class IocContainer : MonoBehaviour
 
     [SerializeField] private SpawnBox _spawnBoxManager;
     [SerializeField] private SpawnPlayer _player;
-    [SerializeField] private SpawnFloor _floor;
+    [SerializeField] private SpawnFloorView _floor;
     [SerializeField] private SpawnContainer _container;
     [SerializeField] private InputKeybordSystem _inputKeybordSystem;
     [SerializeField] private GameButtonsController _gameButtonsController;
-    [SerializeField] private GameStatusView _gameStatusManager;
+    [SerializeField] private GameStatusController _gameStatusController;
     [SerializeField] private GameLevelInspector _gameLevelInspector;
     [SerializeField] private AudioManager _audioManager;
 
@@ -26,11 +26,10 @@ public class IocContainer : MonoBehaviour
     public IContainerSystem Audio => _audioManager;
     public IContainerSystem GameLevel => _gameLevelInspector;
 
-
     public IInputSystem InputSystem => _inputKeybordSystem;
     public IInputSystem InputButtonSystem => _gameButtonsController;
 
-    public IStatusGameSystem GameStatusSystem => _gameStatusManager;
+    public IStatusGameSystem GameStatusSystem => _gameStatusController;
 
 
     private void Start()
@@ -38,6 +37,7 @@ public class IocContainer : MonoBehaviour
         Instance = this;
 
         _screen = new ScreenInfo(Camera.main);
+        _gameStatusController = new GameStatusController();
 
         GameLevel.Init();
         SpawnManager.Init();

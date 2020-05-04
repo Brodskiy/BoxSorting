@@ -1,17 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-public class BoxController  : MonoBehaviour
+public class BoxController : MonoBehaviour
 {
-    public GameObject _backgroundColor;
+    public BoxInfo InfoData;
 
-    public BoxInfoData InfoData;
-
-    private void Init()
-    {
-        InfoData = new BoxInfoData();
-        InfoData.WasActive = true;
-    }
+    private void Init() => InfoData = gameObject.AddComponent<BoxInfo>();
 
     public void SetBoxColor(int quantityColors)
     {

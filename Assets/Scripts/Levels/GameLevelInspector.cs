@@ -76,7 +76,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
 
     private void BoxAndSpawnStop()
     {
-        _spawnBox.IsCanSpawn(false);
+        IocContainer.Instance.GameStatusSystem.IsCanSpawn = false;
 
         foreach (var box in _spawnBox._listBoxes)
         {
