@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -2369097947999271344}
   - component: {fileID: 4232543498120723316}
   - component: {fileID: 295971431120060071}
+  - component: {fileID: 3047970380607364768}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8198ec2fd640e44bb7d3ad37eab5388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 0
 --- !u!114 &-2369097947999271344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3415f3ab7e7ed4dbca4e43762fc12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundColor: {fileID: 2465379702929644746}
+  BoxColor: {fileID: 2465379702929644746}
 --- !u!212 &295971431120060071
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -189,6 +191,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3047970380607364768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295971431120060068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d53aee120be05408a7308013d3e1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2465379702929644746
 GameObject:
   m_ObjectHideFlags: 0

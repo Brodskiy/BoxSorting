@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class IocContainer : MonoBehaviour
 {
     public static IocContainer Instance { get; private set; }
@@ -12,19 +11,21 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private InputKeybordSystem _inputKeybordSystem;
     [SerializeField] private GameButtonsController _gameButtonsController;
     [SerializeField] private GameStatusController _gameStatusController;
-    [SerializeField] private GameLevelInspector _gameLevelInspector;
+    [SerializeField] private GameLevelInspector _gameLevel;
     [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private GameOverView _gameOverView;
 
     private ScreenInfo _screen;
 
     public ISpawnComplit SpawnManager => _spawnBoxManager;
+    public ILevelSystem GameLevel => _gameLevel;
 
     public IInitializationSystem Player => _player;
     public IScreenInfoSystem ScreenSystem => _screen;
     public IInitializationSystem Floor => _floor;
     public IInitializationSystem Container => _container;   
     public IInitializationSystem Audio => _audioManager;
-    public IInitializationSystem GameLevel => _gameLevelInspector;
+    public IInitializationSystem GameOverSystem => _gameOverView;
 
     public IInputSystem InputSystem => _inputKeybordSystem;
     public IInputSystem InputButtonSystem => _gameButtonsController;
@@ -45,5 +46,6 @@ public class IocContainer : MonoBehaviour
         Floor.Initialization();
         Container.Initialization();
         Audio.Initialization();
+        GameOverSystem.Initialization();
     }
 }

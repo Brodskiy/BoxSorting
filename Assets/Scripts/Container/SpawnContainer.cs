@@ -20,7 +20,7 @@ public class SpawnContainer : MonoBehaviour, IInitializationSystem
         _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
 
         _quantityContainer = _gameLevelInspector.CurrentLevel.QuantityColors;
-        _gameLevelInspector.LevelPassed += UpdateConatiner;
+        _gameLevelInspector.OnLevelComplit += UpdateConatiner;
         _listContainers = new List<GameObject>();
         
         SpawnContainers();

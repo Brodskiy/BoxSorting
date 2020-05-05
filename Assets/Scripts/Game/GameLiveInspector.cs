@@ -8,7 +8,6 @@ class GameLiveInspector : MonoBehaviour
 
     public int Lives { get; private set; } = 3;
 
-    public event Action GameOver;
     public event Action LiveLost;
 
     private void Start()
@@ -20,8 +19,7 @@ class GameLiveInspector : MonoBehaviour
     {
         if (Lives <= 0)
         {
-            GameOver?.Invoke();
-            _gameStatus.GameOver();
+            IocContainer.Instance.GameStatusSystem.GameOver();
         }
     }
 

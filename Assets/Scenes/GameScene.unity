@@ -317,11 +317,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 198645661}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 867286618}
+      - m_Target: {fileID: 0}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -862,11 +862,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 867286615}
-  - component: {fileID: 867286618}
   - component: {fileID: 867286614}
   - component: {fileID: 867286617}
   - component: {fileID: 867286619}
   - component: {fileID: 867286622}
+  - component: {fileID: 867286616}
   m_Layer: 0
   m_Name: GameInspector
   m_TagString: Untagged
@@ -907,6 +907,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &867286616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867286613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764882e2ec3cada449aefcb0febfa96c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameOverPanel: {fileID: 427816001}
 --- !u!114 &867286617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -925,23 +938,9 @@ MonoBehaviour:
   _container: {fileID: 207222909}
   _inputKeybordSystem: {fileID: 867286622}
   _gameButtonsController: {fileID: 270537885}
-  _gameStatusManager: {fileID: 867286618}
-  _gameLevelInspector: {fileID: 867286614}
+  _gameLevel: {fileID: 867286614}
   _audioManager: {fileID: 2052438947}
---- !u!114 &867286618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867286613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8c5615ff0ce7f4c8e842c36e4f5937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameOverPanel: {fileID: 427816001}
-  _gameButtonPanel: {fileID: 270537881}
+  _gameOverView: {fileID: 867286616}
 --- !u!114 &867286619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,7 +953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d5125fd8ffcd34d896e7e66ac4a50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameStatus: {fileID: 867286618}
   _textDisplayLive: {fileID: 2132423069}
 --- !u!114 &867286622
 MonoBehaviour:
@@ -3050,7 +3048,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892426512}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!95 &1892426516
 Animator:
   serializedVersion: 3
@@ -3172,7 +3170,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 867286618}
+      - m_Target: {fileID: 0}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -3256,15 +3254,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7a3b8b00a68e747bd3f7980e495718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _run: {fileID: 2052438955}
   _thow: {fileID: 2052438954}
-  _stay: {fileID: 2052438953}
   _gameOver: {fileID: 2052438952}
   _levelDane: {fileID: 2052438951}
   _boxCrash: {fileID: 2052438950}
   _spawnBox: {fileID: 2052438949}
-  _gameLevelInspector: {fileID: 867286614}
-  _gameLiveInspector: {fileID: 867286619}
+  _gameLive: {fileID: 867286619}
 --- !u!4 &2052438948
 Transform:
   m_ObjectHideFlags: 0
@@ -4039,7 +4034,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 867286618}
+      - m_Target: {fileID: 0}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
+    public GameObject BoxColor;
+
     public BoxInfo InfoData { get; private set;}
 
     public void Init()
@@ -21,7 +23,7 @@ public class BoxController : MonoBehaviour
     public void SetBoxColor(int quantityColors)
     {
         GererationColorSystem changColor = new GererationColorSystem(quantityColors);
-        InfoData. BoxColor = changColor.RandomColor;
+        InfoData.BoxColor = changColor.RandomColor;
         GC.SuppressFinalize(changColor);
     }
 

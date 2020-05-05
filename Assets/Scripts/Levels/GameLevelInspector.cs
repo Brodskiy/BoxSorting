@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GameLevelInspector : MonoBehaviour, IInitializationSystem
+public class GameLevelInspector : MonoBehaviour, ILevelSystem
 {
     [SerializeField] private LevelsContainer _levelContainer;
     [SerializeField] private SaveLoadLevel _loadData;
@@ -17,7 +16,7 @@ public class GameLevelInspector : MonoBehaviour, IInitializationSystem
     private float _timer;
     public int _activeLevel;
 
-    public event Action<LevelModelBase> LevelPassed;
+    public event Action<LevelModelBase> OnLevelComplit;
 
     public LevelModelBase CurrentLevel { get; private set; }
 
@@ -46,11 +45,11 @@ public class GameLevelInspector : MonoBehaviour, IInitializationSystem
 
     private void StartNextLevel()
     {
+        IocContainer.Instance.GameStatusSystem.IsCanSpawn = false;
         _activeLevel++;
         _timer = 0;
         SetCurrentLevel();
-        LevelPassed?.Invoke(CurrentLevel);
-        BoxAndSpawnStop();
+        OnLevelComplit?.Invoke(CurrentLevel);
 
         SetNewLevelData();
         RunNewLevel();
@@ -72,17 +71,7 @@ public class GameLevelInspector : MonoBehaviour, IInitializationSystem
     {      
         _panelLevelPassed.SetActive(true);
         _sceneChangeSystem.RunGameScene();
-    }
-
-    private void BoxAndSpawnStop()
-    {
-        IocContainer.Instance.GameStatusSystem.IsCanSpawn = false;
-
-        foreach (var box in _spawnBox._listBoxes)
-        {
-            box._moveBox._speed = 0;
-        }
-    }
+    }    
 
     private void SetCurrentLevel()
     {

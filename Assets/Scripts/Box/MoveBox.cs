@@ -15,7 +15,7 @@ public class MoveBox : MonoBehaviour
     {
         _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
         _speed = _gameLevelInspector.CurrentLevel.ParcelSpeed;
-        _gameLevelInspector.LevelPassed += UpdateSpeed;
+        _gameLevelInspector.OnLevelComplit += UpdateSpeed;
     }
 
     private void UpdateSpeed(LevelModelBase level)

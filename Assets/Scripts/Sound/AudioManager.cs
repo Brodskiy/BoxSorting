@@ -8,42 +8,39 @@ public class AudioManager : MonoBehaviour, IInitializationSystem
     [SerializeField] private AudioSource _boxCrash;
     [SerializeField] private AudioSource _spawnBox;
 
-    [SerializeField] private GameLevelInspector _gameLevelInspector;
-    [SerializeField] private GameLiveInspector _gameLiveInspector;
+    [SerializeField] private GameLiveInspector _gameLive;
     public void Initialization()
     {
-        IocContainer.Instance.InputSystem.OnClicked += Input_OnClicked;
+        IocContainer.Instance.InputSystem.OnClicked += ButtonClick;
+        IocContainer.Instance.InputButtonSystem.OnClicked += ButtonClick;
+        IocContainer.Instance.SpawnManager.SpawnComplit += BoxSpawnComplit;
+        IocContainer.Instance.GameStatusSystem.OnGameOver += GameOver;
+        IocContainer.Instance.GameLevel.OnLevelComplit += PassedLevel;
 
-        IocContainer.Instance.InputButtonSystem.OnClicked += Input_OnClicked;
-
-        IocContainer.Instance.SpawnManager.SpawnComplit += SpawnBoxEvetn_SpawnComplit;
-
-        _gameLevelInspector.LevelPassed += GameLevelInspector_LevelPassed;
-        _gameLiveInspector.GameOver += GameLiveInspector_GameOver;
-        _gameLiveInspector.LiveLost += GameLiveInspector_LiveLost;
+        _gameLive.LiveLost += LiveLost;
     }
 
-    private void GameLiveInspector_LiveLost()
+    private void LiveLost()
     {
         _boxCrash.Play();
     }
 
-    private void GameLiveInspector_GameOver()
+    private void GameOver()
     {
         _gameOver.Play();
     }
 
-    private void SpawnBoxEvetn_SpawnComplit()
+    private void BoxSpawnComplit()
     {
         _spawnBox.Play();
     }
 
-    private void GameLevelInspector_LevelPassed(LevelModelBase obj)
+    private void PassedLevel(LevelModelBase obj)
     {
         _levelDane.Play();
     }
 
-    private void Input_OnClicked(EInputState obj)
+    private void ButtonClick(EInputState obj)
     {
         if (obj == EInputState.Down)
         {

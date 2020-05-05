@@ -44,7 +44,7 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
 
         _quantityColorsBox = _gameLevelInspector.CurrentLevel.QuantityColors;
         _spawnTime = _gameLevelInspector.CurrentLevel.TimeSpawnParcel;
-        _gameLevelInspector.LevelPassed += UpdateParcel;
+        _gameLevelInspector.OnLevelComplit += UpdateParcel;
     }
 
     private void UpdateParcel(LevelModelBase levelInfo)
@@ -91,6 +91,6 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
     private void BoxColor(BoxContainerSystem box)
     {
         box._boxController.SetBoxColor(_quantityColorsBox);
-        box.GetComponentInChildren<Renderer>().material.color = box._boxController.InfoData.BoxColor;
+        box._boxController.BoxColor.GetComponent<Renderer>().material.color = box._boxController.InfoData.BoxColor;
     }
 }

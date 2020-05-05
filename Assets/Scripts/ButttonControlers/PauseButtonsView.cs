@@ -22,18 +22,18 @@ public class PauseButtonsView : MonoBehaviour
 
     private void OnPlay()
     {
-        IocContainer.Instance.GameStatusSystem.OnPlay();
+        IocContainer.Instance.GameStatusSystem.Play();
     }
 
     public void PauseGame()
     {
-        IocContainer.Instance.GameStatusSystem.OnPause();        
+        IocContainer.Instance.GameStatusSystem.Pause();        
         ChangeView(false);
     }
 
     public void ContinueGame()
     {
-        IocContainer.Instance.GameStatusSystem.OnPlay();
+        IocContainer.Instance.GameStatusSystem.Play();
         ChangeView(true);
     }
 

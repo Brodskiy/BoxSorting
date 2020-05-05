@@ -7,6 +7,7 @@ public interface IStatusGameSystem
 
     bool IsCanSpawn { get; set; }
 
-    void OnPause();
-    void OnPlay();
+    void GameOver();
+    void Pause();
+    void Play();
 }

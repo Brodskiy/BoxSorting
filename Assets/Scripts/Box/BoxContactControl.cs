@@ -4,21 +4,23 @@ using UnityEngine;
 public class BoxContactControl : MonoBehaviour
 {
     public event Action BoxCrash;
+
+    private BoxContainerSystem _box;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<BoxController>())
+        if (collision.GetComponent<ContainerInfo>())
         {
-            if (!IsSameColor(collision.gameObject))
+            if (!IsSameColor(collision.GetComponent<ContainerInfo>()))
             {
-                collision.GetComponent<BoxController>().IsActive(false);
+                GetComponent<BoxController>().IsActive(false);
                 FindObjectOfType<GameLiveInspector>().LiveIsLost();
                 BoxCrash?.Invoke();
             }
         }
     }
 
-    private bool IsSameColor(GameObject box)
+    private bool IsSameColor(ContainerInfo container)
     {
-        return gameObject.GetComponent<Renderer>().material.color == box.GetComponent<BoxController>().InfoData.BoxColor;
+        return GetComponent<BoxContainerSystem>()._boxController.InfoData.BoxColor == container.ContainerColor;
     }
 }

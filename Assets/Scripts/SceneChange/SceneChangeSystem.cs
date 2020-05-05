@@ -30,11 +30,19 @@ public class SceneChangeSystem : MonoBehaviour
 
     private void PlayButtonClick()
     {
+        ChangeGameStatus();
         _transformationSystem.TransitionToScene(_gameScene);
     }
 
     private void LevelButtonClick()
     {
+        ChangeGameStatus();
         _transformationSystem.TransitionToScene(_levelScene);
+    }
+
+    private void ChangeGameStatus()
+    {
+        IocContainer.Instance.GameStatusSystem.Play();
+        IocContainer.Instance.GameStatusSystem.IsCanSpawn = false;
     }
 }

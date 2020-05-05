@@ -16,23 +16,23 @@ public class GameStatusController : IStatusGameSystem
 
     public void GameOver()
     {
-        OnPause();
+        Pause();
         OnGameOver?.Invoke();
     }
 
     public void StartGame()
     {
-        OnPlay();
+        Play();
         OnGameStart?.Invoke();
     }
 
-    public void OnPause()
+    public void Pause()
     {
         SetTimeScale(ETimeScale.TimeStop);
         SetOpportunitySpawn(false);
     }
 
-    public void OnPlay()
+    public void Play()
     {
         SetTimeScale(ETimeScale.TimeGo);
         SetOpportunitySpawn(true);
