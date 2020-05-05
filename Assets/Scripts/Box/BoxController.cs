@@ -3,16 +3,25 @@ using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
-    public BoxInfo InfoData;
+    public BoxInfo InfoData { get; private set;}
 
-    private void Init() => InfoData = gameObject.AddComponent<BoxInfo>();
+    public void Init()
+    {
+        InfoData = new BoxInfo();
+    }
+
+    public void Activate(float _leftEdge, float _rightEdge, float _startPositionY)
+    {
+        transform.position = new Vector3(UnityEngine.Random.Range(_leftEdge, _rightEdge), _startPositionY);
+
+        IsActive(true);
+        IsCaught(false);
+    }
 
     public void SetBoxColor(int quantityColors)
     {
-        Init();
-
         GererationColorSystem changColor = new GererationColorSystem(quantityColors);
-        InfoData.BoxColor = changColor.RandomColor;
+        InfoData. BoxColor = changColor.RandomColor;
         GC.SuppressFinalize(changColor);
     }
 
@@ -25,13 +34,5 @@ public class BoxController : MonoBehaviour
     {
         gameObject.SetActive(isActive);
         InfoData.WasActive = isActive;
-    }
-
-    public void Activate(float _leftEdge, float _rightEdge, float _startPositionY)
-    {
-        transform.position = new Vector3(UnityEngine.Random.Range(_leftEdge, _rightEdge), _startPositionY);
-
-        IsActive(true);
-        IsCaught(false);
-    }
+    }    
 }

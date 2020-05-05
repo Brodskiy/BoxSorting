@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameLevelInspector : MonoBehaviour, IContainerSystem
+public class GameLevelInspector : MonoBehaviour, IInitializationSystem
 {
     [SerializeField] private LevelsContainer _levelContainer;
     [SerializeField] private SaveLoadLevel _loadData;
@@ -21,7 +21,7 @@ public class GameLevelInspector : MonoBehaviour, IContainerSystem
 
     public LevelModelBase CurrentLevel { get; private set; }
 
-    public void Init()
+    public void Initialization()
     {
         _loadData.Load();
         _activeLevel = _loadData.SavedLevelData.SelectedLevel;

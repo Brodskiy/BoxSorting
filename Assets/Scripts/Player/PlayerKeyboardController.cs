@@ -2,20 +2,20 @@
 
 public class PlayerKeyboardController : MonoBehaviour
 {
-    private PlayerMoves _playerMoves;
+    private PlayerView _playerMoves;
 
     void Start()
     {
-        _playerMoves = _playerMoves == null ? FindObjectOfType<PlayerMoves>().GetComponent<PlayerMoves>() : _playerMoves;
+        _playerMoves = _playerMoves == null ? FindObjectOfType<PlayerView>() : _playerMoves;
         
-        IocContainer.Instance.InputSystem.OnClicked += _input_OnClicked;
-        IocContainer.Instance.InputSystem.OnClickedOff += _input_OnClickedOff;
+        IocContainer.Instance.InputSystem.OnClicked += ButtonOnClick;
+        IocContainer.Instance.InputSystem.OnClickedOff += ButtonOnCkickOff;
 
-        IocContainer.Instance.InputButtonSystem.OnClicked += _input_OnClicked;
-        IocContainer.Instance.InputButtonSystem.OnClickedOff += _input_OnClickedOff;
+        IocContainer.Instance.InputButtonSystem.OnClicked += ButtonOnClick;
+        IocContainer.Instance.InputButtonSystem.OnClickedOff += ButtonOnCkickOff;
     }   
 
-    private void _input_OnClicked(EInputState inputValue)
+    private void ButtonOnClick(EInputState inputValue)
     {
         switch (inputValue)
         {
@@ -33,7 +33,7 @@ public class PlayerKeyboardController : MonoBehaviour
         }
     }
 
-    private void _input_OnClickedOff()
+    private void ButtonOnCkickOff()
     {
         _playerMoves.Stay();
     }

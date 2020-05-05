@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnContainer : MonoBehaviour, IContainerSystem
+public class SpawnContainer : MonoBehaviour, IInitializationSystem
 {    
     [SerializeField] private GameObject _containerPrefab;
 
@@ -14,7 +14,7 @@ public class SpawnContainer : MonoBehaviour, IContainerSystem
     private List<GameObject> _listContainers;
     private GameLevelInspector _gameLevelInspector;
 
-    public void Init()
+    public void Initialization()
     {
         _screenInfo = IocContainer.Instance.ScreenSystem;
         _gameLevelInspector = FindObjectOfType<GameLevelInspector>();

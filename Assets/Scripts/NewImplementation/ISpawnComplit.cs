@@ -1,6 +1,6 @@
 ﻿using System;
 
-public interface ISpawnComplit : IContainerSystem
+public interface ISpawnComplit : IInitializationSystem
 {
     event Action SpawnComplit;
 }

@@ -53,7 +53,7 @@ public class MoveBox : MonoBehaviour
 
     private void MoveWithPlayer()
     {
-        transform.position = FindObjectOfType<PlayerMoves>().BoxPositionInPlayerHands.position;
+        transform.position = FindObjectOfType<PlayerView>().BoxPositionInPlayerHands.position;
         IsThrowBox = true;
     }
 }

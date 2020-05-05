@@ -10,7 +10,7 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
 
     public event Action<BoxContainerSystem> BoxCreated;
     public event Action SpawnComplit;
-    
+
     public List<BoxContainerSystem> _listBoxes;
 
     private GameLevelInspector _gameLevelInspector;
@@ -25,19 +25,22 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
 
     private void Update()
     {
-        InitBox();
         if (IocContainer.Instance.GameStatusSystem.IsCanSpawn)
         {
             _timet += Time.deltaTime;
-        }        
+
+            if (_timet >= _spawnTime)
+            {
+                InitBox();
+            }
+        }
     }
 
-    public void Init()
+    public void Initialization()
     {
+        _listBoxes = new List<BoxContainerSystem>();
         SetInitPosition();
         _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
-
-        _listBoxes = new List<BoxContainerSystem>();
 
         _quantityColorsBox = _gameLevelInspector.CurrentLevel.QuantityColors;
         _spawnTime = _gameLevelInspector.CurrentLevel.TimeSpawnParcel;
@@ -48,7 +51,7 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
     {
         _spawnTime = levelInfo.TimeSpawnParcel;
         _quantityColorsBox = levelInfo.QuantityColors;
-    }   
+    }
 
     private void SetInitPosition()
     {
@@ -60,37 +63,34 @@ public class SpawnBox : MonoBehaviour, ISpawnComplit
 
     private void InitBox()
     {
-        if (_timet >= _spawnTime)
+        _timet = ZERO;
+
+        foreach (var box in _listBoxes)
         {
-            _timet = ZERO;
-
-            foreach (var box in _listBoxes)
+            if (box._boxController.InfoData.WasActive == false && box._boxController.InfoData.WasCaught == false)
             {
-                if(box._boxController.InfoData.WasActive == false)
-                {
-                    box._boxController.Activate(_minPositionX, _maxPositionX, transform.position.y);
-                    BoxColor(box._boxController);
-                    SpawnComplit?.Invoke();
-                    return;
-                }
+                box._boxController.Activate(_minPositionX, _maxPositionX, transform.position.y);
+                BoxColor(box);
+                SpawnComplit?.Invoke();
+                return;
             }
-
-            BoxContainerSystem newBox =
-            Instantiate(_prefabBox,
-                new Vector3(UnityEngine.Random.Range(_minPositionX, _maxPositionX), transform.position.y, -1),
-                Quaternion.identity);
-
-            BoxColor(newBox._boxController);
-
-            _listBoxes.Add(newBox);
-            BoxCreated?.Invoke(newBox);
-            SpawnComplit?.Invoke();
         }
+
+        BoxContainerSystem newBox =
+            Instantiate(_prefabBox,
+                        new Vector3(UnityEngine.Random.Range(_minPositionX, _maxPositionX), transform.position.y, -1),
+                        Quaternion.identity);
+
+        BoxColor(newBox);
+
+        _listBoxes.Add(newBox);
+        BoxCreated?.Invoke(newBox);
+        SpawnComplit?.Invoke();
     }
 
-    private void BoxColor(BoxController box)
+    private void BoxColor(BoxContainerSystem box)
     {
-        box.SetBoxColor(_quantityColorsBox);
-        box.GetComponent<Renderer>().material.color = box.InfoData.BoxColor;
-    }    
+        box._boxController.SetBoxColor(_quantityColorsBox);
+        box.GetComponentInChildren<Renderer>().material.color = box._boxController.InfoData.BoxColor;
+    }
 }

@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 
-public class AudioManager : MonoBehaviour, IContainerSystem
+public class AudioManager : MonoBehaviour, IInitializationSystem
 {
-    [SerializeField] private AudioSource _run;
     [SerializeField] private AudioSource _thow;
-    [SerializeField] private AudioSource _stay;
     [SerializeField] private AudioSource _gameOver;
     [SerializeField] private AudioSource _levelDane;
     [SerializeField] private AudioSource _boxCrash;
@@ -12,14 +10,12 @@ public class AudioManager : MonoBehaviour, IContainerSystem
 
     [SerializeField] private GameLevelInspector _gameLevelInspector;
     [SerializeField] private GameLiveInspector _gameLiveInspector;
-    public void Init()
+    public void Initialization()
     {
         IocContainer.Instance.InputSystem.OnClicked += Input_OnClicked;
-        IocContainer.Instance.InputSystem.OnClickedOff += Input_OnClickedOff;
 
         IocContainer.Instance.InputButtonSystem.OnClicked += Input_OnClicked;
-        IocContainer.Instance.InputButtonSystem.OnClickedOff += Input_OnClickedOff;
-        
+
         IocContainer.Instance.SpawnManager.SpawnComplit += SpawnBoxEvetn_SpawnComplit;
 
         _gameLevelInspector.LevelPassed += GameLevelInspector_LevelPassed;
@@ -47,24 +43,11 @@ public class AudioManager : MonoBehaviour, IContainerSystem
         _levelDane.Play();
     }
 
-    private void Input_OnClickedOff()
-    {
-        _stay.Play();
-    }
-
     private void Input_OnClicked(EInputState obj)
     {
-        switch (obj)
+        if (obj == EInputState.Down)
         {
-            case EInputState.Left:
-                _run.Play();
-                break;
-            case EInputState.Right:
-                _run.Play();
-                break;
-            case EInputState.Down:
-                _thow.Play();
-                break;
+            _thow.Play();
         }
     }
 }

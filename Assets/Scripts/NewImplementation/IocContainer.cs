@@ -7,7 +7,7 @@ public class IocContainer : MonoBehaviour
 
     [SerializeField] private SpawnBox _spawnBoxManager;
     [SerializeField] private SpawnPlayer _player;
-    [SerializeField] private SpawnFloorView _floor;
+    [SerializeField] private SpawnFloor _floor;
     [SerializeField] private SpawnContainer _container;
     [SerializeField] private InputKeybordSystem _inputKeybordSystem;
     [SerializeField] private GameButtonsController _gameButtonsController;
@@ -19,12 +19,12 @@ public class IocContainer : MonoBehaviour
 
     public ISpawnComplit SpawnManager => _spawnBoxManager;
 
-    public IContainerSystem Player => _player;
+    public IInitializationSystem Player => _player;
     public IScreenInfoSystem ScreenSystem => _screen;
-    public IContainerSystem Floor => _floor;
-    public IContainerSystem Container => _container;   
-    public IContainerSystem Audio => _audioManager;
-    public IContainerSystem GameLevel => _gameLevelInspector;
+    public IInitializationSystem Floor => _floor;
+    public IInitializationSystem Container => _container;   
+    public IInitializationSystem Audio => _audioManager;
+    public IInitializationSystem GameLevel => _gameLevelInspector;
 
     public IInputSystem InputSystem => _inputKeybordSystem;
     public IInputSystem InputButtonSystem => _gameButtonsController;
@@ -37,13 +37,13 @@ public class IocContainer : MonoBehaviour
         Instance = this;
 
         _screen = new ScreenInfo(Camera.main);
-        _gameStatusController = new GameStatusController();
+        _gameStatusController = new GameStatusController();        
 
-        GameLevel.Init();
-        SpawnManager.Init();
-        Player.Init();
-        Floor.Init();
-        Container.Init();
-        Audio.Init();
+        GameLevel.Initialization();
+        SpawnManager.Initialization();
+        Player.Initialization();
+        Floor.Initialization();
+        Container.Initialization();
+        Audio.Initialization();
     }
 }

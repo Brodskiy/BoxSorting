@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class SpawnPlayer : MonoBehaviour, IContainerSystem
+public class SpawnPlayer : MonoBehaviour, IInitializationSystem
 {
-    [SerializeField] private PlayerMoves _playerPrefab;
+    [SerializeField] private PlayerView _playerPrefab;
 
-    public void Init()
+    public void Initialization()
     {
         Instantiate(_playerPrefab.gameObject);
     }

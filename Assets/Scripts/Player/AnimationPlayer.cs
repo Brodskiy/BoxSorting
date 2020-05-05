@@ -7,16 +7,16 @@ public class AnimationPlayer : MonoBehaviour
 
     private void Start()
     {
-        IocContainer.Instance.InputButtonSystem.OnClicked += UpdateBehaviourPlayer;
-        IocContainer.Instance.InputButtonSystem.OnClickedOff += InputSystem_OnClickedOff;
+        IocContainer.Instance.InputButtonSystem.OnClicked += ButtonClick;
+        IocContainer.Instance.InputButtonSystem.OnClickedOff += ButonClickoff;
 
-        IocContainer.Instance.InputSystem.OnClicked += UpdateBehaviourPlayer;
-        IocContainer.Instance.InputSystem.OnClickedOff += InputSystem_OnClickedOff;
+        IocContainer.Instance.InputSystem.OnClicked += ButtonClick;
+        IocContainer.Instance.InputSystem.OnClickedOff += ButonClickoff;
 
-        _catchBox.CaughtBox += _catchBox_CaughtBox;
+        _catchBox.CaughtBox += BoxCaught;
     }
 
-    private void _catchBox_CaughtBox(BoxContainerSystem obj)
+    private void BoxCaught(BoxContainerSystem obj)
     {
         if (_animator.GetInteger("Stay") == 0)
         {
@@ -24,7 +24,7 @@ public class AnimationPlayer : MonoBehaviour
         }
     }
 
-    private void InputSystem_OnClickedOff()
+    private void ButonClickoff()
     {
         if (_catchBox._isHandsFree)
         {
@@ -36,7 +36,7 @@ public class AnimationPlayer : MonoBehaviour
         }
     }
 
-    private void UpdateBehaviourPlayer(EInputState clickState)
+    private void ButtonClick(EInputState clickState)
     {
         switch (clickState)
         {

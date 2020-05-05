@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 
-public class SpawnFloorView : MonoBehaviour, IContainerSystem
+public class SpawnFloor : MonoBehaviour, IInitializationSystem
 {
     [SerializeField] private GameObject _floorPrefab;
 
-    public void Init()
+    public void Initialization()
     {
-        gameObject.SetActive(true);
         Instantiate(_floorPrefab);
     }
 }

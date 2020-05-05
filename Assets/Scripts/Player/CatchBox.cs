@@ -15,7 +15,6 @@ public class CatchBox : MonoBehaviour
             if (_isHandsFree)
             {
                 _box = collision.GetComponent<BoxContainerSystem>();
-                collision.GetComponent<BoxController>().IsCaught(true);
 
                 _box._boxController.IsCaught(true);
                 _box._moveBox.IsBoxStop=true;

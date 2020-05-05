@@ -7,8 +7,8 @@ enum ETimeScale
     TimeGo
 }
 
-public class GameStatusController : MonoBehaviour, IStatusGameSystem
-{    
+public class GameStatusController : IStatusGameSystem
+{
     public event Action OnGameOver;
     public event Action OnGameStart;
 
@@ -36,7 +36,7 @@ public class GameStatusController : MonoBehaviour, IStatusGameSystem
     {
         SetTimeScale(ETimeScale.TimeGo);
         SetOpportunitySpawn(true);
-    }     
+    }
 
     private void SetOpportunitySpawn(bool canSpawn)
     {

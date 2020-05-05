@@ -17,6 +17,7 @@ public class DeactiveBox : MonoBehaviour
         {
             _box._moveBox.IsThrowBox = false;
             _box.transform.localScale = _startScaleBox;
+            _box._boxController.IsCaught(false);
             _box._boxController.IsActive(false);
         }
     }
