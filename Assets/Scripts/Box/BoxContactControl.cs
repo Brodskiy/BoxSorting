@@ -5,7 +5,6 @@ public class BoxContactControl : MonoBehaviour
 {
     public event Action BoxCrash;
 
-    private BoxContainerSystem _box;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<ContainerInfo>())

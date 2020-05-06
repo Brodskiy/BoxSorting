@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class SpawnContainer : MonoBehaviour, IInitializationSystem
 {    
-    [SerializeField] private GameObject _containerPrefab;
+    [SerializeField] private ContainerInfo _containerPrefab;
 
     private int _quantityContainer;
 
     private IScreenInfoSystem _screenInfo;
     private Vector3 _containerSize;
     private Vector3 _positionFirstContainer;
-    private List<GameObject> _listContainers;
+    private List<ContainerInfo> _listContainers;
     private GameLevelInspector _gameLevelInspector;
 
     public void Initialization()
@@ -21,7 +21,7 @@ public class SpawnContainer : MonoBehaviour, IInitializationSystem
 
         _quantityContainer = _gameLevelInspector.CurrentLevel.QuantityColors;
         _gameLevelInspector.OnLevelComplit += UpdateConatiner;
-        _listContainers = new List<GameObject>();
+        _listContainers = new List<ContainerInfo>();
         
         SpawnContainers();
     }
@@ -83,6 +83,7 @@ public class SpawnContainer : MonoBehaviour, IInitializationSystem
         var _changeColor = new GererationColorSystem(numberContainer);
 
         _listContainers[numberContainer].GetComponent<Renderer>().material.color = _changeColor.ListColors[numberContainer];
+        _listContainers[numberContainer].SetContainerColor(_changeColor.ListColors[numberContainer]);
 
         GC.SuppressFinalize(_changeColor);
     }   
