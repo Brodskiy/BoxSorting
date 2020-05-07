@@ -6,8 +6,8 @@ public class MoveBox : MonoBehaviour
 
     private GameLevelInspector _gameLevelInspector;
 
-    public bool IsBoxStop { get; set; }//todo
-    public bool IsThrowBox { get; set; }//todo
+    public bool IsBoxStop { get; set; }
+    public bool IsThrowBox { get; set; }
 
     private float _stapScale = 0.01f;
 
@@ -30,25 +30,28 @@ public class MoveBox : MonoBehaviour
 
     private void Move()
     {
-        if (IsBoxStop)
+        if (IocContainer.Instance.GameStatusSystem.IsCanMove)
         {
-            MoveWithPlayer();
-            return;
-        }
-
-        if (IsThrowBox)
-        {
-            if (transform.position.y <= -3.5f)
+            if (IsBoxStop)
             {
-                transform.localScale = new Vector3(
-                transform.localScale.x - _stapScale,
-                transform.localScale.y - _stapScale);
+                MoveWithPlayer();
+                return;
             }
-        }
 
-        Vector3 temp = transform.position;
-        temp.y -= _speed * Time.deltaTime;
-        transform.position = temp;
+            if (IsThrowBox)
+            {
+                if (transform.position.y <= -3.5f)
+                {
+                    transform.localScale = new Vector3(
+                    transform.localScale.x - _stapScale,
+                    transform.localScale.y - _stapScale);
+                }
+            }
+
+            Vector3 temp = transform.position;
+            temp.y -= _speed * Time.deltaTime;
+            transform.position = temp;
+        }
     }
 
     private void MoveWithPlayer()

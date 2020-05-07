@@ -13,6 +13,7 @@ public class GameStatusController : IStatusGameSystem
     public event Action OnGameStart;
 
     public bool IsCanSpawn { get; set; } = true;
+    public bool IsCanMove { get; set; } = true;
 
     public void GameOver()
     {

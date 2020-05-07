@@ -10,6 +10,8 @@ public class SceneChangeSystem : MonoBehaviour
 
     private string _gameScene = "GameScene";
     private string _levelScene = "LevelScene";
+   
+    private IStatusGameSystem _statusGame; 
 
     public void RunGameScene()
     {
@@ -18,6 +20,7 @@ public class SceneChangeSystem : MonoBehaviour
 
     private void Start()
     {
+        _statusGame = IocContainer.Instance.GameStatusSystem;
         _btnPlay.onClick.AddListener(PlayButtonClick);
         _btnLevel.onClick.AddListener(LevelButtonClick);
         _btnQuit.onClick.AddListener(QuitButtonClick);
@@ -49,8 +52,9 @@ public class SceneChangeSystem : MonoBehaviour
     }
 
     private void ChangeGameStatus()
-    {   
-        IocContainer.Instance.GameStatusSystem.Play();
-        IocContainer.Instance.GameStatusSystem.IsCanSpawn = false;
+    {
+        _statusGame.Play();
+        _statusGame.IsCanSpawn = false;
+        _statusGame.IsCanMove = false;
     }
 }
