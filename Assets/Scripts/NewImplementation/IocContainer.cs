@@ -12,7 +12,7 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private GameButtonsController _gameButtonsController;
     [SerializeField] private GameStatusController _gameStatusController;
     [SerializeField] private GameLevelInspector _gameLevel;
-    [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private SoundManager _audioManager;
     [SerializeField] private GameOverView _gameOverView;
 
     private ScreenInfo _screen;

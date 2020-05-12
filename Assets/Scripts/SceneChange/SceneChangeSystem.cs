@@ -19,8 +19,7 @@ public class SceneChangeSystem : MonoBehaviour
     }
 
     private void Start()
-    {
-        _statusGame = IocContainer.Instance.GameStatusSystem;
+    {        
         _btnPlay.onClick.AddListener(PlayButtonClick);
         _btnLevel.onClick.AddListener(LevelButtonClick);
         _btnQuit.onClick.AddListener(QuitButtonClick);
@@ -33,22 +32,22 @@ public class SceneChangeSystem : MonoBehaviour
 
     private void PlayButtonClick()
     {
-        if (IocContainer.Instance != null)
-        {
-            ChangeGameStatus();
-        }
-
+        ChackIocControllerInstance();
         _transformationSystem.TransitionToScene(_gameScene);
     }
 
     private void LevelButtonClick()
     {
+        ChackIocControllerInstance();
+        _transformationSystem.TransitionToScene(_levelScene);
+    }
+    private void ChackIocControllerInstance()
+    {
         if (IocContainer.Instance != null)
         {
+            _statusGame = IocContainer.Instance.GameStatusSystem;
             ChangeGameStatus();
         }
-
-        _transformationSystem.TransitionToScene(_levelScene);
     }
 
     private void ChangeGameStatus()
@@ -56,5 +55,5 @@ public class SceneChangeSystem : MonoBehaviour
         _statusGame.Play();
         _statusGame.IsCanSpawn = false;
         _statusGame.IsCanMove = false;
-    }
+    }    
 }

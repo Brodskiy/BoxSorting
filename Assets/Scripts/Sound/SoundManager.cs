@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AudioManager : MonoBehaviour, IInitializationSystem
+public class SoundManager : MonoBehaviour, IInitializationSystem
 {
     [SerializeField] private AudioSource _thow;
     [SerializeField] private AudioSource _gameOver;
