@@ -2,7 +2,7 @@
 
 public class ThrowBox : MonoBehaviour
 {
-    [SerializeField] private PlayerView _playerMoves;
+    [SerializeField] private CharacterView _playerMoves;
     
     private CatchBox _catchBox;    
     private MoveBox _boxMove;
@@ -11,11 +11,11 @@ public class ThrowBox : MonoBehaviour
     private void Start()
     {
         _catchBox = gameObject.GetComponent<CatchBox>();
-        _playerMoves.ThrowBoxDown += _playerMoves_ThrowBoxDown;
+        _playerMoves.ThrowBoxDown += Throw;
         _catchBox.CaughtBox += Caught;
     }
 
-    private void _playerMoves_ThrowBoxDown()
+    private void Throw()
     {
         if (_isBoxOnHand)
         {

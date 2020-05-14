@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class FloorSizeView : MonoBehaviour, IInitializationSystem
+public class FloorView : BaseGameElement
 {
     public void Initialization()
-    {
+    {        
         SetFloorSize();
     }
 

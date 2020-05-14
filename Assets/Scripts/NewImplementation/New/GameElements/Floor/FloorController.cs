@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FloorControll : MonoBehaviour
+public class FloorController : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {

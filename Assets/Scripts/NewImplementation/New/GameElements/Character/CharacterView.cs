@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-class PlayerView : MonoBehaviour
+class CharacterView : MonoBehaviour
 {
     private const float TWO = 2;
 
