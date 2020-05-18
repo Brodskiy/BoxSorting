@@ -2,11 +2,11 @@
 
 public class PlayerKeyboardController : MonoBehaviour
 {
-    private CharacterView _playerMoves;
+    private CharacterMove _playerMoves;
 
     void Start()
     {
-        _playerMoves = _playerMoves == null ? FindObjectOfType<CharacterView>() : _playerMoves;
+        _playerMoves = _playerMoves == null ? FindObjectOfType<CharacterMove>() : _playerMoves;
         
         IocContainer.Instance.InputSystem.OnClicked += ButtonOnClick;
         IocContainer.Instance.InputSystem.OnClickedOff += ButtonOnCkickOff;

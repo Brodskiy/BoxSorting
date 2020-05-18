@@ -1,17 +1,8 @@
 ﻿using UnityEngine;
 
-public class BaseGameElement : MonoBehaviour
+public abstract class BaseGameElement : MonoBehaviour
 {
-    [SerializeField] protected GameObject _prefab;
-    [SerializeField] protected Transform _startPosition;
+    protected Vector3 _gameElementPosition;
 
-    public GameObject GetPrefab()
-    {
-        return _prefab;
-    }
-
-    public Transform GetStartPosition()
-    {
-        return _startPosition;
-    }
+    public abstract Vector3 GetSpawnPosition();
 }

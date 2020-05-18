@@ -13,14 +13,8 @@ public class MoveBox : MonoBehaviour
 
     private void Start()
     {
-        _gameLevelInspector = FindObjectOfType<GameLevelInspector>();
+        _gameLevelInspector = IocContainer.Instance.GameLevel;
         _speed = _gameLevelInspector.CurrentLevel.ParcelSpeed;
-        _gameLevelInspector.OnLevelComplit += UpdateSpeed;
-    }
-
-    private void UpdateSpeed(LevelModelBase level)
-    {
-        _speed = level.ParcelSpeed;
     }
 
     private void Update()
@@ -56,7 +50,7 @@ public class MoveBox : MonoBehaviour
 
     private void MoveWithPlayer()
     {
-        transform.position = FindObjectOfType<CharacterView>().BoxPositionInPlayerHands.position;
+        transform.position = FindObjectOfType<CharacterMove>().BoxPositionInPlayerHands.position;
         IsThrowBox = true;
     }
 }

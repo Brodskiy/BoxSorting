@@ -6,6 +6,12 @@ public class BaseBox : BasePackage
 
     public Color BoxColor { get; private set; }
 
+
+    public override Vector3 GetSpawnPosition()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void SetBoxColor(Color color)
     {
         BoxColor = color;

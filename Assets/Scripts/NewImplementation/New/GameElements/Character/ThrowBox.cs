@@ -2,7 +2,7 @@
 
 public class ThrowBox : MonoBehaviour
 {
-    [SerializeField] private CharacterView _playerMoves;
+    [SerializeField] private CharacterMove _playerMoves;
     
     private CatchBox _catchBox;    
     private MoveBox _boxMove;

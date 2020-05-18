@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 7472091953001095068}
   - component: {fileID: 1077472930148091045}
   - component: {fileID: 6161298928989802020}
+  - component: {fileID: -3298145010342261383}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -158,6 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9701ef13d7d0d6a4e9990a3bdae1a57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 10
+  _stapDistance: 0.3
   BoxPositionInPlayerHands: {fileID: 6024527705275382313}
 --- !u!114 &6429479525581629777
 MonoBehaviour:
@@ -265,3 +268,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1077472930148091045}
   _catchBox: {fileID: 6429479525581629777}
+--- !u!114 &-3298145010342261383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242054249895712132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ec7399f87addc4dbc4cc9e20bf45ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 2242054249895712132}
