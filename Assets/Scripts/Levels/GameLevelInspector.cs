@@ -6,7 +6,7 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
     [SerializeField] private LevelsContainer _levelContainer;
     [SerializeField] private SaveLoadLevel _loadData;
     [SerializeField] private SceneChangeSystem _sceneChangeSystem;
-    [SerializeField] private SpawnBox _spawnBox;
+    [SerializeField] private SpawnPackage _spawnBox;
     [SerializeField] private GameObject _panelLevelPassed;
     [SerializeField] private DisplayInfo _displayTime;
 

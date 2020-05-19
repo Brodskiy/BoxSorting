@@ -2,10 +2,10 @@
 {
 	public BaseLevel(float timeSpawnParcel, float levelTimer, int quantityColors, float parcelSpeed)
 	{
-		TimeSpawnParcel = timeSpawnParcel;
+		TimeSpawnBox = timeSpawnParcel;
 		LevelTimer = levelTimer;
 		QuantityColors = quantityColors;
-		ParcelSpeed = parcelSpeed;
+		BoxSpeed = parcelSpeed;
 		IsOpen = false;
 	}
 }

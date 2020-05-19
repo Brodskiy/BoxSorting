@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
 public class SpawnContainerSystem : SpawnStillObject
 {
-    [SerializeField] private ContainerView _container;
-
     public List<ContainerView> ListContainers;
     public override void Init()
     {
@@ -12,7 +9,7 @@ public class SpawnContainerSystem : SpawnStillObject
 
         for (int i = 0; i < IocContainer.Instance.GameLevel.CurrentLevel.QuantityColors; i++)
         {
-            ListContainers.Add(SpawnObject<ContainerView>(_container));
+            ListContainers.Add(SpawnObject<ContainerView>(_gameElementPref));
         }
     }
 }

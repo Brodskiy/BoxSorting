@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd2f8e1bceffdc48b727577fd30c1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _floorPrefab: {fileID: 76343952999463483, guid: 3905fa7a0fd431240b1c7d52494016a4,
+  _gameElementPref: {fileID: 76343952999463483, guid: 3905fa7a0fd431240b1c7d52494016a4,
     type: 3}
 --- !u!1 &121926920
 GameObject:
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf0110deaa5d4f4387af3a97a481c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 5572214459389571124, guid: a5609223176f2fc41b053af54a0d91bc,
+  _gameElementPref: {fileID: 5572214459389571124, guid: a5609223176f2fc41b053af54a0d91bc,
     type: 3}
   ListContainers: []
 --- !u!1 &131157903
@@ -1900,7 +1900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5d971d0b934c129ecce6d764d245d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnBoxManager: {fileID: 1863789248}
   _container: {fileID: 207222909}
   _inputKeybordSystem: {fileID: 867286622}
   _gameButtonsController: {fileID: 270537885}
@@ -1908,8 +1907,8 @@ MonoBehaviour:
   _audioManager: {fileID: 2052438947}
   _gameOverView: {fileID: 867286616}
   _spawnFloor: {fileID: 98320258}
-  _spawnContainer: {fileID: 121926922}
   _spawnCharacter: {fileID: 1669592093}
+  _spawnContainer: {fileID: 121926922}
 --- !u!114 &867286619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4622,10 +4621,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1669592091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf4d3c239f59584295b19f55e331c5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bd2f8e1bceffdc48b727577fd30c1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterPrefab: {fileID: -3298145010342261383, guid: 6bf6ae497cb30da4eb1d09cfe5184a74,
+  _gameElementPref: {fileID: -3298145010342261383, guid: 6bf6ae497cb30da4eb1d09cfe5184a74,
     type: 3}
 --- !u!1 &1671852792
 GameObject:
@@ -5541,9 +5540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce3981b054cdc40b60558d75148e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabBox: {fileID: 7529351105211582697, guid: e0816ef82b49df7458e51ddb20feafd4,
-    type: 3}
-  _listBoxes: []
+  _gameElementPref: {fileID: 0}
 --- !u!1 &1873469537
 GameObject:
   m_ObjectHideFlags: 0

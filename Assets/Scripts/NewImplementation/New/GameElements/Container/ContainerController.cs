@@ -7,23 +7,22 @@ public class ContainerController : MonoBehaviour, IInitializationSystem
 
     [SerializeField] private GameLevelInspector _gameLevelInspector;
 
-    private float _screenSizeX;
+    private IScreenInfoSystem _screenInfo;
     private int _quantityColors;
 
     public void Initialization()
     {
-        _screenSizeX = IocContainer.Instance.ScreenSystem.ScreenSize.x;
+        _screenInfo = IocContainer.Instance.ScreenSystem;
         _quantityColors = _gameLevelInspector.CurrentLevel.QuantityColors;
 
-        SetContainersViewList(IocContainer.Instance.spawnContainerSystem.ListContainers);
-
+        SetContainersViewList(IocContainer.Instance.SpawnContainerSystem.ListContainers);
     }
 
     private void SetContainersViewList(List<ContainerView> containers)
     {
         for (int i = 0; i < containers.Count; i++)
         {
-            containers[i].SetContainerSize(SetSize(_screenSizeX, _quantityColors));
+            containers[i].SetContainerSize(SetSize(_screenInfo.ScreenSize.x, _quantityColors));
             containers[i].SetContainerPosition(SetPosition(i + 1, containers[i].ContainerSize));
             containers[i].SetContainerColor(SetColor(i));
 
@@ -33,7 +32,7 @@ public class ContainerController : MonoBehaviour, IInitializationSystem
 
     private Color SetColor(int numberContainer)
     {
-        var color = new GererationColorSystem(IocContainer.Instance.GameLevel.CurrentLevel.QuantityColors).ListColors[numberContainer];
+        var color = new GererationColorSystem(_quantityColors).ListColors[numberContainer];
         return color;
     }
 
@@ -44,7 +43,8 @@ public class ContainerController : MonoBehaviour, IInitializationSystem
 
     private Vector3 SetPosition(int numberContainer, float containerSize)
     {
-        return new Vector3((containerSize * numberContainer - containerSize / TWO) + IocContainer.Instance.ScreenSystem.MinPosition.x,
-            IocContainer.Instance.ScreenSystem.MinPosition.z/TWO);
+        return new Vector3((
+            containerSize * numberContainer - containerSize / TWO) + _screenInfo.MinPosition.x,
+            _screenInfo.MinPosition.y);
     }
 }

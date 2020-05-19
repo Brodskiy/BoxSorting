@@ -2,7 +2,7 @@
 
 public abstract class BaseGameElement : MonoBehaviour
 {
-    protected Vector3 _gameElementPosition;
+    protected Vector3 _spawnPosition;
 
     public abstract Vector3 GetSpawnPosition();
 }

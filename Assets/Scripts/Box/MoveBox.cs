@@ -14,7 +14,7 @@ public class MoveBox : MonoBehaviour
     private void Start()
     {
         _gameLevelInspector = IocContainer.Instance.GameLevel;
-        _speed = _gameLevelInspector.CurrentLevel.ParcelSpeed;
+        _speed = _gameLevelInspector.CurrentLevel.BoxSpeed;
     }
 
     private void Update()

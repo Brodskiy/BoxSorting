@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour, IInitializationSystem
     {
         IocContainer.Instance.InputSystem.OnClicked += ButtonClick;
         IocContainer.Instance.InputButtonSystem.OnClicked += ButtonClick;
-        IocContainer.Instance.SpawnManager.SpawnComplit += BoxSpawnComplit;
+        //IocContainer.Instance.SpawnManager.SpawnComplit += BoxSpawnComplit;
         IocContainer.Instance.GameStatusSystem.OnGameOver += GameOver;
         IocContainer.Instance.GameLevel.OnLevelComplit += PassedLevel;
 
