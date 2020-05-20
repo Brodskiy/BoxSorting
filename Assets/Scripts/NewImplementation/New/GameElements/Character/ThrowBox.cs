@@ -4,9 +4,9 @@ public class ThrowBox : MonoBehaviour
 {
     [SerializeField] private CharacterMove _playerMoves;
     
-    private CatchBox _catchBox;    
-    private MoveBox _boxMove;
+    private CatchBox _catchBox;
     private bool _isBoxOnHand;
+    private MoveBox _moveBox;
 
     private void Start()
     {
@@ -19,15 +19,15 @@ public class ThrowBox : MonoBehaviour
     {
         if (_isBoxOnHand)
         {
-            _boxMove.IsBoxStop = false;
+            _moveBox.IsBoxStop = false;
             _catchBox._isHandsFree = true;
             _isBoxOnHand = false;
         }
     }    
 
-    private void Caught(BoxContainerSystem box)
+    private void Caught(MoveBox box)
     {
-        _boxMove = box.GetComponent<MoveBox>();
+        _moveBox = box.GetComponent<MoveBox>();
         _isBoxOnHand = true;
     }    
 }

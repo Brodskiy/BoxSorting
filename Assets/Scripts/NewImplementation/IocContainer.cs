@@ -4,7 +4,6 @@ public class IocContainer : MonoBehaviour
 {
     public static IocContainer Instance { get; private set; }
 
-    //[SerializeField] private SpawnBox _spawnBoxManager;
     [SerializeField] private ContainerController _container;
     [SerializeField] private InputKeybordSystem _inputKeybordSystem;
     [SerializeField] private GameButtonsController _gameButtonsController;
@@ -15,10 +14,10 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private SpawnStillObject _spawnFloor;
     [SerializeField] private SpawnStillObject _spawnCharacter;
     [SerializeField] private SpawnContainerSystem _spawnContainer;
+    [SerializeField] private SpawnPackage _spawnPackage;
 
     private ScreenInfo _screen;
 
-    //public ISpawnComplit SpawnManager => _spawnBoxManager;
 
     public GameLevelInspector GameLevel => _gameLevel;
 
@@ -43,12 +42,12 @@ public class IocContainer : MonoBehaviour
         _gameStatusController = new GameStatusController();        
 
         GameLevel.Initialization();
-        //SpawnManager.Initialization();
         
 
         _spawnFloor.Init();
         _spawnCharacter.Init();
         _spawnContainer.Init();
+        _spawnPackage.Inicialization();
 
         Container.Initialization();
 

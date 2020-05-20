@@ -18,14 +18,17 @@ public class SpawnPackage : SpawnMobileObject
 
     private void Update()
     {
-        if(_timer >= SpawnTime)
+        if (IocContainer.Instance.GameStatusSystem.IsCanSpawn)
         {
-            Spawn();
-        }
-        else
-        {
-            _timer += Time.deltaTime;
-        }
+            if (_timer >= SpawnTime)
+            {
+                Spawn();
+            }
+            else
+            {
+                _timer += Time.deltaTime;
+            }
+        }        
     }
 
     private void Spawn()
@@ -36,7 +39,7 @@ public class SpawnPackage : SpawnMobileObject
         {
             if (package.IsActive == false)
             {
-                package.Activate(MinPosition.x, MaxPosition.x, MaxPosition.y);
+                package.Activate();
                 return;
             }
         }

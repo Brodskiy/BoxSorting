@@ -2,9 +2,8 @@
 
 public class MoveBox : MonoBehaviour
 {
-    public float _speed;
-
     private GameLevelInspector _gameLevelInspector;
+    private float _speed;    
 
     public bool IsBoxStop { get; set; }
     public bool IsThrowBox { get; set; }
@@ -34,6 +33,8 @@ public class MoveBox : MonoBehaviour
 
             if (IsThrowBox)
             {
+                _speed = _gameLevelInspector.CurrentLevel.BoxSpeed;
+
                 if (transform.position.y <= -3.5f)
                 {
                     transform.localScale = new Vector3(
@@ -51,6 +52,7 @@ public class MoveBox : MonoBehaviour
     private void MoveWithPlayer()
     {
         transform.position = FindObjectOfType<CharacterMove>().BoxPositionInPlayerHands.position;
+        _speed = 0;
         IsThrowBox = true;
     }
 }

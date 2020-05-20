@@ -16,7 +16,7 @@ public class AnimationPlayer : MonoBehaviour
         _catchBox.CaughtBox += BoxCaught;
     }
 
-    private void BoxCaught(BoxContainerSystem obj)
+    private void BoxCaught(MoveBox obj)
     {
         if (_animator.GetInteger("Stay") == 0)
         {

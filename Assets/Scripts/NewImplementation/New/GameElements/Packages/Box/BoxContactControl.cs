@@ -5,13 +5,17 @@ public class BoxContactControl : MonoBehaviour
 {
     public event Action BoxCrash;
 
+    private BaseBoxView _boxView;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<ContainerView>())
         {
+            _boxView = GetComponent<BaseBoxView>();
+
             if (!IsSameColor(collision.GetComponent<ContainerView>()))
             {
-                GetComponent<BoxController>().IsActive(false);
+                _boxView.Deactivation();
                 FindObjectOfType<GameLiveInspector>().LiveIsLost();
                 BoxCrash?.Invoke();
             }
@@ -20,6 +24,6 @@ public class BoxContactControl : MonoBehaviour
 
     private bool IsSameColor(ContainerView container)
     {
-        return GetComponent<BoxContainerSystem>()._boxController.InfoData.BoxColor == container.ContainerColor;
+        return _boxView.BoxColor == container.ContainerColor;
     }
 }
