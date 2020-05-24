@@ -6,12 +6,14 @@ class GameLiveInspector : MonoBehaviour
     [SerializeField] private GameStatusController _gameStatus;
     [SerializeField] private DisplayInfo _textDisplayLive;
 
-    public int Lives { get; private set; } = 3;
+    public static int Lives { get; private set; }
 
     public event Action LiveLost;
 
+    private readonly int _maxLives = 3;
     private void Start()
     {
+        Lives = _maxLives;
         _textDisplayLive.DisplayText(Lives, "Lives");
     }
 
@@ -23,11 +25,19 @@ class GameLiveInspector : MonoBehaviour
         }
     }
 
-    public void LiveIsLost()
+    public void LiveIsLost(int lostLives)
     {
-        Lives--;
+        Lives -= lostLives;
         _textDisplayLive.DisplayText(Lives, "Lives");
         LiveLost?.Invoke();
         GameOverControll();
+    }
+
+    public void LiveAdd(int addLives)
+    {
+        if(Lives + addLives <= _maxLives)
+        {
+            Lives += addLives;
+        }        
     }
 }

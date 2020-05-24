@@ -6,24 +6,24 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
     [SerializeField] private LevelsContainer _levelContainer;
     [SerializeField] private SaveLoadLevel _loadData;
     [SerializeField] private SceneChangeSystem _sceneChangeSystem;
-    [SerializeField] private SpawnPackage _spawnBox;
     [SerializeField] private GameObject _panelLevelPassed;
     [SerializeField] private DisplayInfo _displayTime;
-
-    private ILevelContain AllLevels => _levelContainer;
-
-    private float _levelTime;
-    private float _timer;
-    public int _activeLevel;
 
     public event Action<LevelModelBase> OnLevelComplit;
 
     public LevelModelBase CurrentLevel { get; private set; }
+    public int ActiveLevel { get; private set; }
+
+    private ILevelContain AllLevels => _levelContainer;
+    private IStatusGameSystem _gameStatusController; 
+    private float _levelTime;
+    private float _timer;
+    
 
     public void Initialization()
     {
         _loadData.Load();
-        _activeLevel = _loadData.SavedLevelData.SelectedLevel;
+        ActiveLevel = _loadData.SavedLevelData.SelectedLevel;
         SetCurrentLevel();
     }
 
@@ -45,8 +45,11 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
 
     private void StartNextLevel()
     {
-        IocContainer.Instance.GameStatusSystem.IsCanSpawn = false;
-        _activeLevel++;
+        _gameStatusController = IocContainer.Instance.GameStatusSystem;
+        _gameStatusController.IsCanSpawn = false;
+        _gameStatusController.IsCanMove = false;
+
+        ActiveLevel++;
         _timer = 0;
         SetCurrentLevel();
         OnLevelComplit?.Invoke(CurrentLevel);
@@ -57,11 +60,11 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
 
     private void SetNewLevelData()
     {
-        _loadData.SavedLevelData.SelectedLevel = _activeLevel;
+        _loadData.SavedLevelData.SelectedLevel = ActiveLevel;
 
-        if (_loadData.SavedLevelData.ActiveLevels < _activeLevel)
+        if (_loadData.SavedLevelData.ActiveLevels < ActiveLevel)
         {
-            _loadData.SavedLevelData.ActiveLevels = _activeLevel;
+            _loadData.SavedLevelData.ActiveLevels = ActiveLevel;
         }
 
         _loadData.SaveData();
@@ -75,7 +78,7 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
 
     private void SetCurrentLevel()
     {
-        CurrentLevel = AllLevels.Levels[_activeLevel];
+        CurrentLevel = AllLevels.Levels[ActiveLevel];
         CurrentLevel.IsOpen = true;
         _levelTime = CurrentLevel.LevelTimer;
     }    

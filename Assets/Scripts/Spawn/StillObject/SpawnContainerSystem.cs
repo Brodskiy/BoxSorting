@@ -3,7 +3,7 @@
 public class SpawnContainerSystem : SpawnStillObject
 {
     public List<ContainerView> ListContainers;
-    public override void Init()
+    public override void Initialization()
     {
         ListContainers = new List<ContainerView>();
 

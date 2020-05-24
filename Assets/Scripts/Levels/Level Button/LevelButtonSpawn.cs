@@ -22,7 +22,7 @@ class LevelButtonSpawn : MonoBehaviour
         _saveLoadLevel.Load();
         _activeLevel = _saveLoadLevel.SavedLevelData.ActiveLevels;
 
-        for (int i = 1; i < _levelsContainer.Levels.Count; i++)
+        for (int i = 0; i < _levelsContainer.Levels.Count; i++)
         {
             LevelButtonControler button = Instantiate(_buttonController, _parentForLevelButton);
             button.SetCountNumberLevelButton(i);

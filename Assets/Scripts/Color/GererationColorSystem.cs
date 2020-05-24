@@ -21,7 +21,7 @@ public class GererationColorSystem
         ListColors.Add(new Color(0.42f, 0.71f, 1f));//blue
         ListColors.Add(new Color(0.27f, 0.46f, 0.43f));//green
         ListColors.Add(Color.cyan);//cyan
-        ListColors.Add(Color.black);//
+        ListColors.Add(Color.black);//black
     }
 
     private void SetRandomColor(int numberOfColor)

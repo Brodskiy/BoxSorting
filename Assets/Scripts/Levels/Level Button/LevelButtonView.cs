@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 [RequireComponent(typeof(LevelButtonControler))]
-class LevelButtonView:MonoBehaviour
+class LevelButtonView : MonoBehaviour
 {
     [SerializeField] private Text _buttonText;
     [SerializeField] private Button _button;
@@ -14,7 +14,7 @@ class LevelButtonView:MonoBehaviour
     public void ShowInfo()
     {
         _levelButtonBase = GetComponent<LevelButtonControler>();
-        _buttonText.text = "Level\n"+_levelButtonBase.CountNumberLevelButton.ToString();
+        _buttonText.text = "Level\n" + (_levelButtonBase.CountNumberLevelButton + 1).ToString();
         _selectedLevel = _levelButtonBase.CountNumberLevelButton;
         _button.interactable = _levelButtonBase.IsActiveLevelButton;
 

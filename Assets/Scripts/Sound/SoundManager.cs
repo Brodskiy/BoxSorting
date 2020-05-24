@@ -7,13 +7,13 @@ public class SoundManager : MonoBehaviour, IInitializationSystem
     [SerializeField] private AudioSource _levelDane;
     [SerializeField] private AudioSource _boxCrash;
     [SerializeField] private AudioSource _spawnBox;
-
     [SerializeField] private GameLiveInspector _gameLive;
+
     public void Initialization()
     {
         IocContainer.Instance.InputSystem.OnClicked += ButtonClick;
         IocContainer.Instance.InputButtonSystem.OnClicked += ButtonClick;
-        //IocContainer.Instance.SpawnManager.SpawnComplit += BoxSpawnComplit;
+        IocContainer.Instance.SpawnBox.Spawned += BoxSpawnComplit;
         IocContainer.Instance.GameStatusSystem.OnGameOver += GameOver;
         IocContainer.Instance.GameLevel.OnLevelComplit += PassedLevel;
 

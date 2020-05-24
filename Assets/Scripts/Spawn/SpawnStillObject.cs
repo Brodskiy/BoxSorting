@@ -1,4 +1,7 @@
-﻿public abstract class SpawnStillObject : SpawnSystem
+﻿using UnityEngine;
+
+public abstract class SpawnStillObject : SpawnSystem, IInitializationSystem
 {
-    public abstract void Init();
+    [SerializeField] protected BaseGameElement _gameElementPref;
+    public abstract void Initialization();
 }
