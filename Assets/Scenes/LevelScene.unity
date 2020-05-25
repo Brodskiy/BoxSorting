@@ -641,7 +641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.029740743, y: 0.8812037}
   m_AnchorMax: {x: 0.96759266, y: 0.97200006}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853798261
@@ -1060,7 +1060,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504362797}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1 &1533488305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1240,7 @@ GameObject:
   - component: {fileID: 1941926782}
   - component: {fileID: 1941926783}
   - component: {fileID: 1941926784}
+  - component: {fileID: 1941926785}
   m_Layer: 0
   m_Name: LevelButtons
   m_TagString: Untagged
@@ -1308,6 +1309,14 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 3
+--- !u!222 &1941926785
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941926781}
+  m_CullTransparentMesh: 1
 --- !u!1 &1950252211
 GameObject:
   m_ObjectHideFlags: 0

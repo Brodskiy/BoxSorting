@@ -9,7 +9,7 @@ public class SpawnHeard : SpawnPackage
     {
         if (IocContainer.Instance.GameLevel.CurrentLevel.IsCanSpawnHeard)
         {
-            SpawnTime = 20;
+            SpawnTime = 5;
             _spawnTimer.TimeToCreate += Spawn;
             _spawnTimer.StartTimer(SpawnTime);
             ListBasePackage = new List<BasePackage>();

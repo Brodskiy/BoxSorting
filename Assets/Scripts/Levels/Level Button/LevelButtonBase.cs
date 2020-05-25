@@ -1,3 +1,3 @@
-﻿class LevelButtonBase:LevelButtonModel
+﻿public class LevelButtonBase:LevelButtonModel
 {
 }

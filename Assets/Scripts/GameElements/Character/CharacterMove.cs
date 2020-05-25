@@ -6,7 +6,7 @@ class CharacterMove : MonoBehaviour
     private const float TWO = 2;
 
     [SerializeField] private float _speed = 10;
-    [SerializeField] private float _stapDistance = 0.3f;
+    [SerializeField] private float _stapDistance = 0.4f;
 
     private EInputState _direction = EInputState.None;
     

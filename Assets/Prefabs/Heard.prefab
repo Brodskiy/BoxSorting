@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8064646207371277713}
   - component: {fileID: 6223365127459408925}
   - component: {fileID: 818180916936541698}
+  - component: {fileID: 3426587910813955734}
   m_Layer: 0
   m_Name: Heard
   m_TagString: Untagged
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3156ebdaee2831546887a8a70699b077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bonusPackaegSpeed: 5
 --- !u!114 &6223365127459408925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,5 +170,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f44e119791c01cb4f9555b98d51798a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3426587910813955734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265663695132323237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef7f7e047fb47948aaefa0ed0367645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

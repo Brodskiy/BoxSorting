@@ -8,8 +8,8 @@ public class SceneChangeSystem : MonoBehaviour
     [SerializeField] private Button _btnLevel;
     [SerializeField] private Button _btnQuit;
 
-    private string _gameScene = "GameScene";
-    private string _levelScene = "LevelScene";
+    private readonly string _gameScene = "GameScene";
+    private readonly string _levelScene = "LevelScene";
    
     private IStatusGameSystem _statusGame; 
 
@@ -23,6 +23,7 @@ public class SceneChangeSystem : MonoBehaviour
         _btnPlay.onClick.AddListener(PlayButtonClick);
         _btnLevel.onClick.AddListener(LevelButtonClick);
         _btnQuit.onClick.AddListener(QuitButtonClick);
+
     }
 
     private void QuitButtonClick()

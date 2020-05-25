@@ -2,9 +2,10 @@
 
 class MoveBonusPackage : MoveBasePackage
 {
+    [SerializeField] protected float _bonusPackaegSpeed = 5;
     private void Awake()
     {
-        _speed = 5;
+        _speed = _bonusPackaegSpeed;
     }
     private void Update()
     {
@@ -12,8 +13,11 @@ class MoveBonusPackage : MoveBasePackage
     }
     protected override void Move()
     {
-        Vector3 temp = transform.position;
-        temp.y -= _speed * Time.deltaTime;
-        transform.position = temp;
+        if (IocContainer.Instance.GameStatusSystem.IsCanMove)
+        {
+            Vector3 temp = transform.position;
+            temp.y -= _speed * Time.deltaTime;
+            transform.position = temp;
+        }        
     }
 }

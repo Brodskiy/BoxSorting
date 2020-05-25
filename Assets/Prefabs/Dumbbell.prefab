@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4359874672550664031}
   - component: {fileID: 1829567325391731961}
   - component: {fileID: 2904449815056087880}
+  - component: {fileID: -3454616088477169513}
   m_Layer: 0
   m_Name: Dumbbell
   m_TagString: Untagged
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3156ebdaee2831546887a8a70699b077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bonusPackaegSpeed: 5
 --- !u!114 &1829567325391731961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,5 +170,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf9cf92efa76d149b98df61ee1c387c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3454616088477169513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089798694294920353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef7f7e047fb47948aaefa0ed0367645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

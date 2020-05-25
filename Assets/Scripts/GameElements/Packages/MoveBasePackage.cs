@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public abstract class MoveBasePackage:MonoBehaviour
+public abstract class MoveBasePackage : MonoBehaviour
 {
     protected GameLevelInspector _gameLevelInspector;
     protected float _speed;

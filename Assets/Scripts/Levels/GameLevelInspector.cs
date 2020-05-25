@@ -28,14 +28,18 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
     }
 
     private void Update()
-    {
-        _timer += Time.deltaTime;
-        TimeControl();
+    {       
+        TimeController();
     }
 
-    private void TimeControl()
+    private void TimeController()
     {
-        _displayTime.DisplayText(_levelTime - _timer, "Time");
+        if (IocContainer.Instance.GameStatusSystem.IsCanSpawn)
+        {
+            _timer += Time.deltaTime;
+        }
+       
+        _displayTime.DisplayText(_levelTime - _timer, "Time");        
 
         if (_timer >= _levelTime)
         {

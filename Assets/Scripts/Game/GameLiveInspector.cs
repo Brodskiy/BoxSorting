@@ -8,7 +8,7 @@ class GameLiveInspector : MonoBehaviour
 
     public static int Lives { get; private set; }
 
-    public event Action LiveLost;
+    public event Action LostLive;
 
     private readonly int _maxLives = 3;
     private void Start()
@@ -29,7 +29,7 @@ class GameLiveInspector : MonoBehaviour
     {
         Lives -= lostLives;
         _textDisplayLive.DisplayText(Lives, "Lives");
-        LiveLost?.Invoke();
+        LostLive?.Invoke();
         GameOverControll();
     }
 
@@ -38,6 +38,7 @@ class GameLiveInspector : MonoBehaviour
         if(Lives + addLives <= _maxLives)
         {
             Lives += addLives;
+            _textDisplayLive.DisplayText(Lives, "Lives");
         }        
     }
 }

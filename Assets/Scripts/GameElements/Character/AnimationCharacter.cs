@@ -22,6 +22,10 @@ public class AnimationCharacter : MonoBehaviour
         {
             _animator.SetInteger("Stay", 3);
         }
+        else
+        {
+            _animator.SetInteger("Stay", 4);
+        }
     }
 
     private void ButonClickoff()
@@ -41,14 +45,26 @@ public class AnimationCharacter : MonoBehaviour
         switch (clickState)
         {
             case EInputState.Left:
-                _animator.SetInteger("Stay", 1);
+                RunAnimation();
                 break;
             case EInputState.Right:
-                _animator.SetInteger("Stay", 1);
+                RunAnimation();
                 break;
             case EInputState.Down:
                 _animator.SetInteger("Stay", 2);
                 break;
+        }
+    }
+
+    private void RunAnimation()
+    {
+        if (_catchBox._isHandsFree)
+        {
+            _animator.SetInteger("Stay", 1);
+        }
+        else
+        {
+            _animator.SetInteger("Stay", 4);
         }
     }
 }

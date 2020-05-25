@@ -16,12 +16,14 @@ public class GererationColorSystem
 
     private void AddColorsToList()
     {
-        ListColors = new List<Color>();
-        ListColors.Add(new Color(1, 0.329f, 0.329f));//red
-        ListColors.Add(new Color(0.42f, 0.71f, 1f));//blue
-        ListColors.Add(new Color(0.27f, 0.46f, 0.43f));//green
-        ListColors.Add(Color.cyan);//cyan
-        ListColors.Add(Color.black);//black
+        ListColors = new List<Color>
+        {
+            new Color(1, 0.329f, 0.329f),//red
+            new Color(0.42f, 0.71f, 1f),//blue
+            new Color(0.27f, 0.46f, 0.43f),//green
+            Color.cyan,//cyan
+            Color.black//black
+        };
     }
 
     private void SetRandomColor(int numberOfColor)

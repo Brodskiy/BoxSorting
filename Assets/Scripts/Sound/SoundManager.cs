@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour, IInitializationSystem
         IocContainer.Instance.GameStatusSystem.OnGameOver += GameOver;
         IocContainer.Instance.GameLevel.OnLevelComplit += PassedLevel;
 
-        _gameLive.LiveLost += LiveLost;
+        _gameLive.LostLive += LiveLost;
     }
 
     private void LiveLost()
