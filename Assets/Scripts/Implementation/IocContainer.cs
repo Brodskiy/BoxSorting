@@ -21,7 +21,6 @@ public class IocContainer : MonoBehaviour
 
     private ScreenInfo _screen;
 
-
     public GameLevelInspector GameLevel => _gameLevel;
 
     public IScreenInfoSystem ScreenSystem => _screen;
@@ -40,7 +39,6 @@ public class IocContainer : MonoBehaviour
     public ISpawnPackage SpawnHeard => _spawnHeard;
     public ISpawnPackage SpawnDummell => _spawnDumbbell;
 
-
     private void Start()
     {
         Instance = this;
@@ -48,8 +46,7 @@ public class IocContainer : MonoBehaviour
         _screen = new ScreenInfo(Camera.main);
         _gameStatusController = new GameStatusController();        
 
-        GameLevel.Initialization();
-        
+        GameLevel.Initialization();        
 
         _spawnFloor.Initialization();
         _spawnCharacter.Initialization();
