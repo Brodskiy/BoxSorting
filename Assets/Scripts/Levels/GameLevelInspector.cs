@@ -19,7 +19,6 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
     private float _levelTime;
     private float _timer;
     
-
     public void Initialization()
     {
         _loadData.Load();

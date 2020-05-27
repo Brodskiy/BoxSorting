@@ -43,8 +43,8 @@ public class ContainerController : MonoBehaviour, IInitializationSystem
 
     private Vector3 SetPosition(int numberContainer, float containerSize)
     {
-        return new Vector3((
-            containerSize * numberContainer - containerSize / TWO) + _screenInfo.MinPosition.x,
+        return new Vector3(
+            (containerSize * numberContainer - containerSize / TWO) + _screenInfo.MinPosition.x,
             _screenInfo.MinPosition.y);
     }
 }

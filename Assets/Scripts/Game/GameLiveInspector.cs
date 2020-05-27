@@ -16,15 +16,6 @@ class GameLiveInspector : MonoBehaviour
         Lives = _maxLives;
         _textDisplayLive.DisplayText(Lives, "Lives");
     }
-
-    private void GameOverControll()
-    {
-        if (Lives <= 0)
-        {
-            IocContainer.Instance.GameStatusSystem.GameOver();
-        }
-    }
-
     public void LiveIsLost(int lostLives)
     {
         Lives -= lostLives;
@@ -35,10 +26,18 @@ class GameLiveInspector : MonoBehaviour
 
     public void LiveAdd(int addLives)
     {
-        if(Lives + addLives <= _maxLives)
+        if (Lives + addLives <= _maxLives)
         {
             Lives += addLives;
             _textDisplayLive.DisplayText(Lives, "Lives");
-        }        
+        }
     }
+
+    private void GameOverControll()
+    {
+        if (Lives <= 0)
+        {
+            IocContainer.Instance.GameStatusSystem.GameOver();
+        }
+    }    
 }

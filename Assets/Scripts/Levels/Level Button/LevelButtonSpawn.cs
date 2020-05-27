@@ -6,11 +6,11 @@ class LevelButtonSpawn : MonoBehaviour
     [SerializeField] private LevelButtonControler _buttonController;
     [SerializeField] private LevelsContainer _levelsContainer;
     [SerializeField] private SaveLoadLevel _saveLoadLevel;
-    [SerializeField] private Transform _parentForLevelButton;
-
-    private int _activeLevel;
+    [SerializeField] private Transform _parentForLevelButton;    
 
     public List<LevelButtonControler> LevelButtons;
+
+    private int _activeLevel;
 
     private void Awake()
     {

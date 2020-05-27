@@ -4,20 +4,17 @@ using UnityEngine;
 class CharacterMove : MonoBehaviour
 {
     private const float TWO = 2;
-
-    [SerializeField] private float _speed = 10;
-    [SerializeField] private float _stapDistance = 0.4f;
-
-    private EInputState _direction = EInputState.None;
+    private readonly float _stapDistance = 4f;    
     
     public event Action ThrowBoxDown;
 
     public Transform BoxPositionInPlayerHands;
 
+    private EInputState _direction = EInputState.None;
+
     private float _temp;
     private float _minPositionX;
-    private float _maxPositionX;
-    
+    private float _maxPositionX;    
     private bool _isMoveLeft;    
 
     private void Start()
@@ -26,9 +23,11 @@ class CharacterMove : MonoBehaviour
         _temp = transform.position.x;
         
         var halfPlayer = transform.localScale.x / TWO;
-        
-        _minPositionX = IocContainer.Instance.ScreenSystem.MinPosition.x + halfPlayer;
-        _maxPositionX = IocContainer.Instance.ScreenSystem.MaxPosition.x - halfPlayer;
+
+        var _sceenSystem = IocContainer.Instance.ScreenSystem;
+
+        _minPositionX = _sceenSystem.MinPosition.x + halfPlayer;
+        _maxPositionX = _sceenSystem.MaxPosition.x - halfPlayer;
     }
 
     private void Update()
@@ -77,16 +76,16 @@ class CharacterMove : MonoBehaviour
     {
         if (_direction == EInputState.Left)
         {
-            _temp -= _stapDistance * _speed * Time.deltaTime;
+            _temp -= _stapDistance * Time.deltaTime;
         }
 
         if (_direction == EInputState.Right)
         {
-            _temp += _stapDistance * _speed * Time.deltaTime;
+            _temp += _stapDistance * Time.deltaTime;
         }
 
         _temp = Mathf.Clamp(_temp, _minPositionX, _maxPositionX);
-        transform.position = new Vector3(_temp, transform.position.y, -1);
+        transform.position = new Vector3(_temp, transform.position.y);
     }
 
     private void MirrorPlayer()

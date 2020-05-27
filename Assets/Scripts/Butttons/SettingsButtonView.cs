@@ -5,8 +5,7 @@ class SettingsButtonView : MonoBehaviour
 {
     [SerializeField] private GameObject _settingPanel;
     [SerializeField] private Button _settingButon;
-
-
+    
     private void Start()
     {
         _settingButon.onClick.AddListener(ActivateSettingPanel);

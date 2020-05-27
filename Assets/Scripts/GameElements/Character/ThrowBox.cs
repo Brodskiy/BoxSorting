@@ -27,7 +27,7 @@ public class ThrowBox : MonoBehaviour
 
     private void Caught(MoveBox box)
     {
-        _moveBox = box.GetComponent<MoveBox>();
+        _moveBox = box;
         _isBoxOnHand = true;
     }    
 }

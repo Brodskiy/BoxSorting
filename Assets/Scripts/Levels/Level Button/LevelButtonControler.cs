@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
 class LevelButtonControler:MonoBehaviour
 {
     public int CountNumberLevelButton { get; private set; }

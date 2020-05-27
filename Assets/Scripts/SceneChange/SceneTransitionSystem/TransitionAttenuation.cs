@@ -14,13 +14,23 @@ class TransitionAttenuation : SceneTransitionSystem
 
     private void Update()
     {
+        Transition();
+    }
+
+    public override void TransitionToScene(string sceneName)
+    {
+        _sceneName = sceneName;
+        _isStartTransition = true;
+    }
+
+    private void Transition()
+    {
         if (_isStartTransition)
         {
             AttenuationImage();
 
             if (_isAttenuationComplet)
             {
-                Time.timeScale = 1;
                 SceneManager.LoadScene(_sceneName);
             }
         }
@@ -38,11 +48,5 @@ class TransitionAttenuation : SceneTransitionSystem
         {
             _isAttenuationComplet = true;
         }
-    }
-
-    public override void TransitionToScene(string sceneName)
-    {
-        _sceneName = sceneName;
-        _isStartTransition = true;
-    }
+    }    
 }

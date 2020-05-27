@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-class LevelSceneChangeSystem:MonoBehaviour
+class LevelSceneChangeSystem : MonoBehaviour
 {
     [SerializeField] private LevelButtonSpawn _levelButtonSpawn;
     [SerializeField] private SceneTransitionSystem _sceneTransitionSystem;
-    
+
     private readonly string _gameScene = "GameScene";
 
     private void Start()

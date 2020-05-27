@@ -3,6 +3,7 @@
 public class CharacterView : BaseGameElement
 {
     private IScreenInfoSystem _screenInfo; 
+
     public override Vector3 GetSpawnPosition()
     {
         _screenInfo = IocContainer.Instance.ScreenSystem;
