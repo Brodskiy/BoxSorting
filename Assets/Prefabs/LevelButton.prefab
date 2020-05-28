@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6035233100778457965, guid: 6e08670280b9d4e40b3524c6a14c6291,
+  m_Sprite: {fileID: -1109159091998662151, guid: 5d97cb8c214f4a6418a1699df6a2358f,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 0.9386792, b: 0.9386792, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.8679245, g: 0.53631186, b: 0.53631186, a: 1}
-    m_SelectedColor: {r: 0.5660378, g: 0.4085084, b: 0.4085084, a: 1}
-    m_DisabledColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0.7176471}
+    m_PressedColor: {r: 0.7490196, g: 0.46274513, b: 0.25490198, a: 1}
+    m_SelectedColor: {r: 0.9960785, g: 0.97647065, b: 0.019607844, a: 1}
+    m_DisabledColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0.7176471}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
