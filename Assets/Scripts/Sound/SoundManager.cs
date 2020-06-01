@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour, IInitializationSystem
         _spawnBox.Play();
     }
 
-    private void PassedLevel(LevelModelBase obj)
+    private void PassedLevel()
     {
         _levelDane.Play();
     }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IocContainer : MonoBehaviour
@@ -18,12 +17,16 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private SpawnPackage _spawnBox;
     [SerializeField] private SpawnPackage _spawnHeard;
     [SerializeField] private SpawnPackage _spawnDumbbell;
+    [SerializeField] private SaveLoadLives _saveLoadLives;
+    [SerializeField] private UnityAdsView _unityAdsView;
+    [SerializeField] private AdsController _adsController;
 
     private ScreenInfo _screen;
 
     public GameLevelInspector GameLevel => _gameLevel;
 
     public IScreenInfoSystem ScreenSystem => _screen;
+
     public IInitializationSystem Container => _container;   
     public IInitializationSystem Audio => _audioManager;
     public IInitializationSystem GameOverSystem => _gameOverView;
@@ -39,12 +42,18 @@ public class IocContainer : MonoBehaviour
     public ISpawnPackage SpawnHeard => _spawnHeard;
     public ISpawnPackage SpawnDummell => _spawnDumbbell;
 
+    public ILiveLoader LiveLoader => _saveLoadLives;
+
+    public IShowAds UnitiShowAds => _unityAdsView;
+
     private void Start()
     {
         Instance = this;
 
         _screen = new ScreenInfo(Camera.main);
-        _gameStatusController = new GameStatusController();        
+        _gameStatusController = new GameStatusController();
+
+        _saveLoadLives.Initialization();
 
         GameLevel.Initialization();        
 
@@ -60,5 +69,8 @@ public class IocContainer : MonoBehaviour
 
         Audio.Initialization();
         GameOverSystem.Initialization();
+
+        _unityAdsView.Initialization();
+        _adsController.Initialization();
     }
 }

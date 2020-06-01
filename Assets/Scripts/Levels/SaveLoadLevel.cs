@@ -3,9 +3,9 @@ using UnityEngine;
 
 class SaveLoadLevel:MonoBehaviour
 {
-    private string _path;
-
     public SaveLevelData SavedLevelData = new SaveLevelData();
+
+    private string _path;
 
     public void Load()
     {

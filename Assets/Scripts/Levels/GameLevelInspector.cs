@@ -9,7 +9,7 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
     [SerializeField] private GameObject _panelLevelPassed;
     [SerializeField] private DisplayInfo _displayTime;
 
-    public event Action<LevelModelBase> OnLevelComplit;
+    public event Action OnLevelComplit;
 
     public LevelModelBase CurrentLevel { get; private set; }
     public int ActiveLevel { get; private set; }
@@ -55,7 +55,7 @@ public class GameLevelInspector : MonoBehaviour, ILevelSystem
         ActiveLevel++;
         _timer = 0;
         SetCurrentLevel();
-        OnLevelComplit?.Invoke(CurrentLevel);
+        OnLevelComplit?.Invoke();
 
         SetNewLevelData();
         RunNewLevel();
