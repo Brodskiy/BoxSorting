@@ -16,7 +16,7 @@ public class BoxContactControl : MonoBehaviour
             if (!IsSameColor(collision.GetComponent<ContainerView>()))
             {
                 _boxView.Deactivation();
-                FindObjectOfType<GameLiveInspector>().LiveIsLost(1);
+                IocContainer.Instance.LiveContrller.LiveIsLost(1);
                 BoxCrash?.Invoke();
             }
         }

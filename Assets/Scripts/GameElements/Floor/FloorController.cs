@@ -10,7 +10,7 @@ public class FloorController : MonoBehaviour
             {
                 collision.gameObject.SetActive(false);
                 collision.gameObject.GetComponent<BaseBoxView>().Deactivation();
-                FindObjectOfType<GameLiveInspector>().LiveIsLost(1);
+                IocContainer.Instance.LiveContrller.LiveIsLost(1);
             }            
         }
     }

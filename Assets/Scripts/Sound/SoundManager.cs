@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour, IInitializationSystem
     [SerializeField] private AudioSource _levelDane;
     [SerializeField] private AudioSource _boxCrash;
     [SerializeField] private AudioSource _spawnBox;
-    [SerializeField] private GameLiveInspector _gameLive;
+    [SerializeField] private GameLiveController _gameLive;
 
     public void Initialization()
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-class GameLiveInspector : MonoBehaviour
+public class GameLiveController : MonoBehaviour, ILiveContrller
 {
     [SerializeField] private GameStatusController _gameStatus;
     [SerializeField] private DisplayInfo _textDisplayLive;
@@ -11,11 +11,12 @@ class GameLiveInspector : MonoBehaviour
     private ILiveLoader _livInfo;
     private int _maxLives = 3;
 
-    private void Start()
+    public void Initialization()
     {
         _livInfo = IocContainer.Instance.LiveLoader;
         _textDisplayLive.DisplayText(_livInfo.LiveDataInfo.Lives, "Lives");
     }
+
     public void LiveIsLost(int lostLives)
     {
         _livInfo.LiveDataInfo.Lives -= lostLives;
@@ -42,5 +43,5 @@ class GameLiveInspector : MonoBehaviour
         {
             IocContainer.Instance.GameStatusSystem.GameOver();
         }
-    }    
+    }
 }

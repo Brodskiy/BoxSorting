@@ -2417,6 +2417,7 @@ MonoBehaviour:
   _saveLoadLives: {fileID: 867286618}
   _unityAdsView: {fileID: 1138974444}
   _adsController: {fileID: 1138974443}
+  _gameLiveController: {fileID: 867286619}
 --- !u!114 &867286618
 MonoBehaviour:
   m_ObjectHideFlags: 0

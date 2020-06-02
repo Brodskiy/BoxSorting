@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 class AdsController : MonoBehaviour, IInitializationSystem
 {
     private IShowAds _showAds;
-    private ILiveLoader _liveLoader;
 
     public void Initialization()
     {
@@ -15,14 +15,18 @@ class AdsController : MonoBehaviour, IInitializationSystem
     private void LongAdsStart()
     {
         _showAds.ShowLongAds();
-        _liveLoader = IocContainer.Instance.LiveLoader;
-        _liveLoader.LiveDataInfo.Lives = 3;
-        _liveLoader.SaveData();
-
+        IocContainer.Instance.LiveContrller.LiveAdd(3);
     }
 
     private void ShortAdsStart()
     {
+        _showAds.SkipAds += PlayGame;
+        IocContainer.Instance.GameStatusSystem.Pause();
         _showAds.ShowShortAds();
+    }
+
+    private void PlayGame()
+    {
+        IocContainer.Instance.GameStatusSystem.Play();
     }
 }

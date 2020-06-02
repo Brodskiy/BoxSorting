@@ -20,6 +20,7 @@ public class IocContainer : MonoBehaviour
     [SerializeField] private SaveLoadLives _saveLoadLives;
     [SerializeField] private UnityAdsView _unityAdsView;
     [SerializeField] private AdsController _adsController;
+    [SerializeField] private GameLiveController _gameLiveController;
 
     private ScreenInfo _screen;
 
@@ -46,6 +47,8 @@ public class IocContainer : MonoBehaviour
 
     public IShowAds UnitiShowAds => _unityAdsView;
 
+    public ILiveContrller LiveContrller => _gameLiveController;
+
     private void Start()
     {
         Instance = this;
@@ -54,21 +57,21 @@ public class IocContainer : MonoBehaviour
         _gameStatusController = new GameStatusController();
 
         _saveLoadLives.Initialization();
+        _gameLiveController.Initialization();
 
-        GameLevel.Initialization();        
+        _gameLevel.Initialization();        
 
         _spawnFloor.Initialization();
         _spawnCharacter.Initialization();
         _spawnContainer.Initialization();
-
         _spawnBox.Initialization();
         _spawnDumbbell.Initialization();
         _spawnHeard.Initialization();
 
-        Container.Initialization();
+        _container.Initialization();
 
-        Audio.Initialization();
-        GameOverSystem.Initialization();
+        _audioManager.Initialization();
+        _gameOverView.Initialization();
 
         _unityAdsView.Initialization();
         _adsController.Initialization();

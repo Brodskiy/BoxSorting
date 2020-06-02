@@ -7,7 +7,7 @@ class DumbbellController : MonoBehaviour
         if (collision.GetComponent<CharacterView>())
         {
             GetComponent<DumbbellView>().Deactivation();
-            FindObjectOfType<GameLiveInspector>().LiveIsLost(IocContainer.Instance.LiveLoader.LiveDataInfo.Lives);
+            IocContainer.Instance.LiveContrller.LiveIsLost(IocContainer.Instance.LiveLoader.LiveDataInfo.Lives);
         }
     }
 }

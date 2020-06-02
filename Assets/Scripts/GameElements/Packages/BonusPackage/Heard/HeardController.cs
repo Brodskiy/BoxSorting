@@ -7,7 +7,7 @@ class HeardController : MonoBehaviour
         if (collision.GetComponent<CharacterView>())
         {
             GetComponent<HeardView>().Deactivation();
-            FindObjectOfType<GameLiveInspector>().LiveAdd(1);
+            IocContainer.Instance.LiveContrller.LiveAdd(1);
         }
     }
 }

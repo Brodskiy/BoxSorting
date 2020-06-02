@@ -1,18 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
 class UnityAdsView : MonoBehaviour, IShowAds
 {
-
 #if UNITY_IOS
     private readonly string _gameId = "3630266";
 #elif UNITY_ANDROID
     private readonly string _gameId = "3630267";
 #endif
+    public event Action SkipAds;
 
     private readonly string _placementVideo = "video";
-    private readonly string _placementRewardVideo = "rewardedVideo";
+    private readonly string _placementRewardVideo = "rewardedVideo";  
 
     public void Initialization()
     {
@@ -23,7 +24,7 @@ class UnityAdsView : MonoBehaviour, IShowAds
     }
 
     public void ShowShortAds()
-    {
+    {        
         StartCoroutine(ShowAdsCoroutine(_placementVideo));
     }
 
@@ -38,6 +39,15 @@ class UnityAdsView : MonoBehaviour, IShowAds
         {
             yield return null;
         }
-        Advertisement.Show(placement);
+        Advertisement.Show(placement, new ShowOptions
+        {
+            resultCallback = result =>
+            {
+                if (result == ShowResult.Skipped)
+                {
+                    SkipAds?.Invoke();
+                }
+            }
+        });
     }    
 }
