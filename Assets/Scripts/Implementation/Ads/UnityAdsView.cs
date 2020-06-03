@@ -10,16 +10,17 @@ class UnityAdsView : MonoBehaviour, IShowAds
 #elif UNITY_ANDROID
     private readonly string _gameId = "3630267";
 #endif
-    public event Action SkipAds;
+    public event Action FinishAds;
 
     private readonly string _placementVideo = "video";
-    private readonly string _placementRewardVideo = "rewardedVideo";  
+    private readonly string _placementRewardVideo = "rewardedVideo";
+    private readonly bool _isTestAds = false;
 
     public void Initialization()
     {
         if (Advertisement.isSupported)
         {
-            Advertisement.Initialize(_gameId, true);
+            Advertisement.Initialize(_gameId, _isTestAds);            
         }
     }
 
@@ -35,17 +36,22 @@ class UnityAdsView : MonoBehaviour, IShowAds
 
     private IEnumerator ShowAdsCoroutine(string placement)
     {
+        IocContainer.Instance.GameStatusSystem.Pause();
+        Advertisement.Load(placement);
+
         while (!Advertisement.IsReady(placement))
         {
             yield return null;
         }
+
         Advertisement.Show(placement, new ShowOptions
         {
             resultCallback = result =>
             {
-                if (result == ShowResult.Skipped)
+                IocContainer.Instance.GameStatusSystem.Play();
+                if(result == ShowResult.Finished)
                 {
-                    SkipAds?.Invoke();
+                    FinishAds?.Invoke();
                 }
             }
         });

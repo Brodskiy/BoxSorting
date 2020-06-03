@@ -56,24 +56,26 @@ public class IocContainer : MonoBehaviour
         _screen = new ScreenInfo(Camera.main);
         _gameStatusController = new GameStatusController();
 
-        _saveLoadLives.Initialization();
-        _gameLiveController.Initialization();
+        LiveLoader.Initialization();
+        LiveContrller.Initialization();
 
-        _gameLevel.Initialization();        
+        GameLevel.Initialization();        
 
         _spawnFloor.Initialization();
         _spawnCharacter.Initialization();
-        _spawnContainer.Initialization();
-        _spawnBox.Initialization();
-        _spawnDumbbell.Initialization();
-        _spawnHeard.Initialization();
 
-        _container.Initialization();
+        SpawnContainerSystem.Initialization();
+        SpawnBox.Initialization();
+        SpawnDummell.Initialization();
+        SpawnHeard.Initialization();
 
-        _audioManager.Initialization();
-        _gameOverView.Initialization();
+        Container.Initialization();
 
-        _unityAdsView.Initialization();
+        Audio.Initialization();
+        GameOverSystem.Initialization();
+
+        UnitiShowAds.Initialization();
+
         _adsController.Initialization();
     }
 }

@@ -5,7 +5,7 @@ public class LevelsContainer : MonoBehaviour, ILevelContain
 {
     public List<LevelModelBase> Levels { get; } = new List<LevelModelBase>()
     {
-        new BaseLevel(5f, 30, 2, 3, false, true),
+        new BaseLevel(5f, 30, 2, 3, false, false),
         new BaseLevel(4.9f , 30, 2, 4, false, false),
         new BaseLevel(4.8f, 35, 3, 4.2f, false, false),
         new BaseLevel(4.7f, 35, 3, 4.4f, false, false),

@@ -1,9 +1,8 @@
 ﻿using System;
-using UnityEngine.Advertisements;
 
 public interface IShowAds : IInitializationSystem
 {
-    event Action SkipAds;
+    event Action FinishAds;
     void ShowShortAds();
     void ShowLongAds();
 }
