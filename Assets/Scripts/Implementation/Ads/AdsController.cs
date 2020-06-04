@@ -14,16 +14,11 @@ class AdsController : MonoBehaviour, IInitializationSystem
     private void LongAdsStart()
     {
         _showAds.ShowLongAds();
-        _showAds.FinishAds += Finish;
         IocContainer.Instance.LiveContrller.LiveAdd(3);
     }   
 
     private void ShortAdsStart()
     {        
         _showAds.ShowShortAds();
-    }
-    private void Finish()
-    {
-        IocContainer.Instance.GameStatusSystem.Pause();
     }
 }

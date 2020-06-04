@@ -10,11 +10,13 @@ class UnityAdsView : MonoBehaviour, IShowAds
 #elif UNITY_ANDROID
     private readonly string _gameId = "3630267";
 #endif
+
     public event Action FinishAds;
 
     private readonly string _placementVideo = "video";
     private readonly string _placementRewardVideo = "rewardedVideo";
     private readonly bool _isTestAds = false;
+    private readonly float _waitTimeSeconds = 0.7f;
 
     public void Initialization()
     {
@@ -25,15 +27,21 @@ class UnityAdsView : MonoBehaviour, IShowAds
     }
 
     public void ShowShortAds()
-    {        
-        StartCoroutine(ShowAdsCoroutine(_placementVideo));
+    {
+        StartCoroutine(AdsStartForSeconds(_placementVideo, _waitTimeSeconds));
     }
 
     public void ShowLongAds()
     {
-        StartCoroutine(ShowAdsCoroutine(_placementRewardVideo));
+        StartCoroutine(AdsStartForSeconds(_placementRewardVideo, _waitTimeSeconds));
     }
 
+    private IEnumerator AdsStartForSeconds(string placement, float waitTimeSeconds)
+    {
+        yield return new WaitForSeconds(waitTimeSeconds);
+        StartCoroutine(ShowAdsCoroutine(placement));
+    }
+     
     private IEnumerator ShowAdsCoroutine(string placement)
     {
         IocContainer.Instance.GameStatusSystem.Pause();
@@ -49,11 +57,11 @@ class UnityAdsView : MonoBehaviour, IShowAds
             resultCallback = result =>
             {
                 IocContainer.Instance.GameStatusSystem.Play();
-                if(result == ShowResult.Finished)
+                if (result == ShowResult.Finished)
                 {
                     FinishAds?.Invoke();
                 }
             }
         });
-    }    
+    } 
 }
