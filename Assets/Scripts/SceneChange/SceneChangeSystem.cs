@@ -20,14 +20,22 @@ public class SceneChangeSystem : MonoBehaviour
 
     private void Start()
     {        
-        _btnPlay.onClick.AddListener(PlayButtonClick);
-        _btnLevel.onClick.AddListener(LevelButtonClick);
+        _btnPlay.onClick.AddListener(PlayButtonClick);        
         _btnQuit.onClick.AddListener(QuitButtonClick);
+
+        if(_btnLevel != null)
+        {
+            _btnLevel.onClick.AddListener(LevelButtonClick);
+        }
 
     }
 
     private void QuitButtonClick()
     {
+#if UNITY_EDITOR
+        Debug.Log("Quit");
+#endif
+
         Application.Quit();
     }
 
@@ -40,7 +48,7 @@ public class SceneChangeSystem : MonoBehaviour
     private void LevelButtonClick()
     {
         ChackIocControllerInstance();
-        _transformationSystem.TransitionToScene(_levelScene);
+        _transformationSystem.TransitionToScene(_levelScene);        
     }
     private void ChackIocControllerInstance()
     {

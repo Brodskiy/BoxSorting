@@ -39,16 +39,22 @@ class UnityAdsView : MonoBehaviour, IShowAds
     private IEnumerator AdsStartForSeconds(string placement, float waitTimeSeconds)
     {
         yield return new WaitForSeconds(waitTimeSeconds);
+        Advertisement.Load(placement);
         StartCoroutine(ShowAdsCoroutine(placement));
     }
      
     private IEnumerator ShowAdsCoroutine(string placement)
     {
         IocContainer.Instance.GameStatusSystem.Pause();
-        Advertisement.Load(placement);
 
-        while (!Advertisement.IsReady(placement))
+        if (Advertisement.IsReady(placement) == false)
         {
+            IocContainer.Instance.GameStatusSystem.Play();
+            FinishAds?.Invoke();
+
+            Initialization();
+            Advertisement.Load(placement);
+
             yield return null;
         }
 
@@ -57,6 +63,7 @@ class UnityAdsView : MonoBehaviour, IShowAds
             resultCallback = result =>
             {
                 IocContainer.Instance.GameStatusSystem.Play();
+
                 if (result == ShowResult.Finished)
                 {
                     FinishAds?.Invoke();
